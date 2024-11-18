@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ml4shpSk9AE=",
+  "dgSpecHash": "cPFPpBlolFU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\nicob\\OneDrive\\Escritorio\\UAI CUATRO CUATRI\\LUG\\VISUAL CON GIT\\TP-LUG\\BLL\\BLL.csproj",
+  "projectFilePath": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\nicob\\.nuget\\packages\\system.configuration.configurationmanager\\9.0.0\\system.configuration.configurationmanager.9.0.0.nupkg.sha512",
-    "C:\\Users\\nicob\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.0\\system.diagnostics.eventlog.9.0.0.nupkg.sha512",
-    "C:\\Users\\nicob\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.0\\system.security.cryptography.protecteddata.9.0.0.nupkg.sha512"
+    "C:\\Users\\marco\\.nuget\\packages\\system.configuration.configurationmanager\\9.0.0\\system.configuration.configurationmanager.9.0.0.nupkg.sha512",
+    "C:\\Users\\marco\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.0\\system.diagnostics.eventlog.9.0.0.nupkg.sha512",
+    "C:\\Users\\marco\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.0\\system.security.cryptography.protecteddata.9.0.0.nupkg.sha512"
   ],
   "logs": []
 }

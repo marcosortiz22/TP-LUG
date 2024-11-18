@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Entity
-build_property.ProjectDir = C:\Users\nicob\OneDrive\Escritorio\UAI CUATRO CUATRI\LUG\VISUAL CON GIT\TP-LUG\Entity\
+build_property.ProjectDir = D:\GIT\GitHub\PracticesOnCSharp\LUG-UAI\TP-LUG\Entity\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
