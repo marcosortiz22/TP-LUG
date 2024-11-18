@@ -11,5 +11,10 @@ namespace UI
         {
 
         }
+
+        private void newMethod()
+        {
+
+        }
     }
 }
