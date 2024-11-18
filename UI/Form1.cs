@@ -6,5 +6,10 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        private void newMethod()
+        {
+
+        }
     }
 }
