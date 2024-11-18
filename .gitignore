@@ -362,3 +362,13 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /UI/App.config
+/BLL/obj/Debug/net8.0/BLL.AssemblyInfo.cs
+/BLL/obj/Debug/net8.0/BLL.AssemblyInfoInputs.cache
+/BLL/obj/Debug/net8.0/BLL.csproj.AssemblyReference.cache
+/DAL/obj/Debug/net8.0/DAL.AssemblyInfo.cs
+/DAL/obj/Debug/net8.0/DAL.AssemblyInfoInputs.cache
+/DAL/obj/Debug/net8.0/DAL.csproj.AssemblyReference.cache
+/Entity/obj/Debug/net8.0/Entity.AssemblyInfo.cs
+/Entity/obj/Debug/net8.0/Entity.AssemblyInfoInputs.cache
+/Mapper/obj/Debug/net8.0/Mapper.AssemblyInfo.cs
+/Mapper/obj/Debug/net8.0/Mapper.AssemblyInfoInputs.cache
