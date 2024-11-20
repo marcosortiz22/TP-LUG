@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mapper
 {
-    public class VueloMap
+    public static class VueloMap
     {
     }
 }
