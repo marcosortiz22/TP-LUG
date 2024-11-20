@@ -46,113 +46,127 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(24, 48);
+            label2.Location = new Point(17, 29);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(43, 25);
+            label2.Size = new Size(27, 15);
             label2.TabIndex = 1;
             label2.Text = "DNI";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(24, 102);
+            label3.Location = new Point(17, 61);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(78, 25);
+            label3.Size = new Size(51, 15);
             label3.TabIndex = 2;
             label3.Text = "Nombre";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(24, 154);
+            label4.Location = new Point(17, 92);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(78, 25);
+            label4.Size = new Size(51, 15);
             label4.TabIndex = 3;
             label4.Text = "Apellido";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(24, 205);
+            label5.Location = new Point(17, 123);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(79, 25);
+            label5.Size = new Size(52, 15);
             label5.TabIndex = 4;
             label5.Text = "Telefono";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(323, 48);
+            label6.Location = new Point(226, 29);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(54, 25);
+            label6.Size = new Size(36, 15);
             label6.TabIndex = 5;
             label6.Text = "Email";
             // 
             // textDNI
             // 
-            textDNI.Location = new Point(125, 42);
+            textDNI.Location = new Point(88, 25);
+            textDNI.Margin = new Padding(2);
             textDNI.Name = "textDNI";
-            textDNI.Size = new Size(150, 31);
+            textDNI.Size = new Size(106, 23);
             textDNI.TabIndex = 10;
             // 
             // textNombre
             // 
-            textNombre.Location = new Point(125, 96);
+            textNombre.Location = new Point(88, 58);
+            textNombre.Margin = new Padding(2);
             textNombre.Name = "textNombre";
-            textNombre.Size = new Size(150, 31);
+            textNombre.Size = new Size(106, 23);
             textNombre.TabIndex = 11;
             // 
             // textApellido
             // 
-            textApellido.Location = new Point(125, 148);
+            textApellido.Location = new Point(88, 89);
+            textApellido.Margin = new Padding(2);
             textApellido.Name = "textApellido";
-            textApellido.Size = new Size(150, 31);
+            textApellido.Size = new Size(106, 23);
             textApellido.TabIndex = 12;
             // 
             // textTelefono
             // 
-            textTelefono.Location = new Point(125, 199);
+            textTelefono.Location = new Point(88, 119);
+            textTelefono.Margin = new Padding(2);
             textTelefono.Name = "textTelefono";
-            textTelefono.Size = new Size(150, 31);
+            textTelefono.Size = new Size(106, 23);
             textTelefono.TabIndex = 13;
             // 
             // textEmail
             // 
-            textEmail.Location = new Point(538, 45);
+            textEmail.Location = new Point(377, 27);
+            textEmail.Margin = new Padding(2);
             textEmail.Name = "textEmail";
-            textEmail.Size = new Size(150, 31);
+            textEmail.Size = new Size(106, 23);
             textEmail.TabIndex = 14;
             // 
             // textTelEmergencia
             // 
-            textTelEmergencia.Location = new Point(538, 95);
+            textTelEmergencia.Location = new Point(377, 57);
+            textTelEmergencia.Margin = new Padding(2);
             textTelEmergencia.Name = "textTelEmergencia";
-            textTelEmergencia.Size = new Size(150, 31);
+            textTelEmergencia.Size = new Size(106, 23);
             textTelEmergencia.TabIndex = 18;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(323, 102);
+            label10.Location = new Point(226, 61);
+            label10.Margin = new Padding(2, 0, 2, 0);
             label10.Name = "label10";
-            label10.Size = new Size(200, 25);
+            label10.Size = new Size(133, 15);
             label10.TabIndex = 19;
             label10.Text = "Telefono de emergencia";
             // 
             // BtnAlta
             // 
-            BtnAlta.Location = new Point(277, 265);
+            BtnAlta.Location = new Point(194, 159);
+            BtnAlta.Margin = new Padding(2);
             BtnAlta.Name = "BtnAlta";
-            BtnAlta.Size = new Size(160, 46);
+            BtnAlta.Size = new Size(112, 28);
             BtnAlta.TabIndex = 20;
             BtnAlta.Text = "Alta";
             BtnAlta.UseVisualStyleBackColor = true;
+            BtnAlta.Click += BtnAlta_Click;
             // 
             // AltaCliente
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(719, 338);
+            ClientSize = new Size(503, 203);
             Controls.Add(BtnAlta);
             Controls.Add(label10);
             Controls.Add(textTelEmergencia);
@@ -166,6 +180,7 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
+            Margin = new Padding(2);
             Name = "AltaCliente";
             Text = "Alta de cliente ";
             ResumeLayout(false);

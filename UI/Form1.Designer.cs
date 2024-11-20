@@ -39,26 +39,29 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(92, 65);
+            dataGridView1.Location = new Point(64, 39);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(787, 225);
+            dataGridView1.Size = new Size(774, 135);
             dataGridView1.TabIndex = 7;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(416, 9);
+            label8.Location = new Point(291, 5);
+            label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
-            label8.Size = new Size(127, 25);
+            label8.Size = new Size(85, 15);
             label8.TabIndex = 8;
             label8.Text = "Lista de cliente";
             // 
             // Altabtn
             // 
-            Altabtn.Location = new Point(82, 368);
+            Altabtn.Location = new Point(57, 221);
+            Altabtn.Margin = new Padding(2);
             Altabtn.Name = "Altabtn";
-            Altabtn.Size = new Size(119, 69);
+            Altabtn.Size = new Size(83, 41);
             Altabtn.TabIndex = 15;
             Altabtn.Text = "Alta de cliente";
             Altabtn.UseVisualStyleBackColor = true;
@@ -66,18 +69,20 @@
             // 
             // Bajabtn
             // 
-            Bajabtn.Location = new Point(416, 368);
+            Bajabtn.Location = new Point(378, 221);
+            Bajabtn.Margin = new Padding(2);
             Bajabtn.Name = "Bajabtn";
-            Bajabtn.Size = new Size(121, 69);
+            Bajabtn.Size = new Size(85, 41);
             Bajabtn.TabIndex = 16;
             Bajabtn.Text = "Baja de cliente ";
             Bajabtn.UseVisualStyleBackColor = true;
             // 
             // Modificarbtn
             // 
-            Modificarbtn.Location = new Point(767, 368);
+            Modificarbtn.Location = new Point(760, 221);
+            Modificarbtn.Margin = new Padding(2);
             Modificarbtn.Name = "Modificarbtn";
-            Modificarbtn.Size = new Size(112, 69);
+            Modificarbtn.Size = new Size(78, 41);
             Modificarbtn.TabIndex = 17;
             Modificarbtn.Text = "Modificar cliente ";
             Modificarbtn.UseVisualStyleBackColor = true;
@@ -85,18 +90,16 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(990, 533);
+            ClientSize = new Size(874, 320);
             Controls.Add(Modificarbtn);
             Controls.Add(Bajabtn);
             Controls.Add(Altabtn);
             Controls.Add(label8);
             Controls.Add(dataGridView1);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "Form1";
             Text = "Clientes";
-            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
