@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\BLL\\BLL.csproj": {}
+    "C:\\Users\\54113\\Documents\\TP-LUG\\BLL\\BLL.csproj": {}
   },
   "projects": {
-    "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\BLL\\BLL.csproj": {
+    "C:\\Users\\54113\\Documents\\TP-LUG\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\54113\\Documents\\TP-LUG\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\BLL\\BLL.csproj",
-        "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-        "outputPath": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\BLL\\obj\\",
+        "projectPath": "C:\\Users\\54113\\Documents\\TP-LUG\\BLL\\BLL.csproj",
+        "packagesPath": "C:\\Users\\54113\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\54113\\Documents\\TP-LUG\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\54113\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,18 +26,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\DAL\\DAL.csproj": {
-                "projectPath": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\DAL\\DAL.csproj"
+              "C:\\Users\\54113\\Documents\\TP-LUG\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\54113\\Documents\\TP-LUG\\DAL\\DAL.csproj"
               },
-              "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Entity\\Entity.csproj": {
-                "projectPath": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Entity\\Entity.csproj"
+              "C:\\Users\\54113\\Documents\\TP-LUG\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Users\\54113\\Documents\\TP-LUG\\Entity\\Entity.csproj"
               }
             }
           }
@@ -73,25 +71,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\DAL\\DAL.csproj": {
+    "C:\\Users\\54113\\Documents\\TP-LUG\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\54113\\Documents\\TP-LUG\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-        "outputPath": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\54113\\Documents\\TP-LUG\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\54113\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\54113\\Documents\\TP-LUG\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\54113\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -100,18 +97,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Entity\\Entity.csproj": {
-                "projectPath": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Entity\\Entity.csproj"
+              "C:\\Users\\54113\\Documents\\TP-LUG\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Users\\54113\\Documents\\TP-LUG\\Entity\\Entity.csproj"
               },
-              "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Mapper\\Mapper.csproj": {
-                "projectPath": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Mapper\\Mapper.csproj"
+              "C:\\Users\\54113\\Documents\\TP-LUG\\Mapper\\Mapper.csproj": {
+                "projectPath": "C:\\Users\\54113\\Documents\\TP-LUG\\Mapper\\Mapper.csproj"
               }
             }
           }
@@ -134,6 +130,10 @@
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.9.0, )"
             }
           },
           "imports": [
@@ -152,25 +152,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Entity\\Entity.csproj": {
+    "C:\\Users\\54113\\Documents\\TP-LUG\\Entity\\Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Entity\\Entity.csproj",
+        "projectUniqueName": "C:\\Users\\54113\\Documents\\TP-LUG\\Entity\\Entity.csproj",
         "projectName": "Entity",
-        "projectPath": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Entity\\Entity.csproj",
-        "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-        "outputPath": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Entity\\obj\\",
+        "projectPath": "C:\\Users\\54113\\Documents\\TP-LUG\\Entity\\Entity.csproj",
+        "packagesPath": "C:\\Users\\54113\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\54113\\Documents\\TP-LUG\\Entity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\54113\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -179,7 +178,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -218,25 +216,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Mapper\\Mapper.csproj": {
+    "C:\\Users\\54113\\Documents\\TP-LUG\\Mapper\\Mapper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Mapper\\Mapper.csproj",
+        "projectUniqueName": "C:\\Users\\54113\\Documents\\TP-LUG\\Mapper\\Mapper.csproj",
         "projectName": "Mapper",
-        "projectPath": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Mapper\\Mapper.csproj",
-        "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-        "outputPath": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Mapper\\obj\\",
+        "projectPath": "C:\\Users\\54113\\Documents\\TP-LUG\\Mapper\\Mapper.csproj",
+        "packagesPath": "C:\\Users\\54113\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\54113\\Documents\\TP-LUG\\Mapper\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\54113\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -245,15 +242,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Entity\\Entity.csproj": {
-                "projectPath": "D:\\GIT\\GitHub\\PracticesOnCSharp\\LUG-UAI\\TP-LUG\\Entity\\Entity.csproj"
+              "C:\\Users\\54113\\Documents\\TP-LUG\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Users\\54113\\Documents\\TP-LUG\\Entity\\Entity.csproj"
               }
             }
           }
@@ -272,6 +268,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.9.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -288,7 +290,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
