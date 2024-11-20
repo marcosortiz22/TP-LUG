@@ -15,7 +15,7 @@ namespace Entity
         public string Apellido { get; set; }
 
         public string Telefono { get; set; }
-        public string TelefonoEnergencia { get; set; }
+        public string TelefonoEmergencia { get; set; }
 
         public string Email { get; set; }
 

@@ -16,9 +16,10 @@ namespace Mapper
             command.Parameters.AddWithValue("@Nombre", cliente.Nombre);
             command.Parameters.AddWithValue("@Apellido", cliente.Apellido);
             command.Parameters.AddWithValue("@Telefono", cliente.Telefono);
-            command.Parameters.AddWithValue("@TelefonoEmergencia", cliente.TelefonoEnergencia);
+            command.Parameters.AddWithValue("@TelefonoEmergencia", cliente.TelefonoEmergencia);
             command.Parameters.AddWithValue("@Email", cliente.Email);
-            command.Parameters.AddWithValue("@Brevet", cliente.Brevet);
+            command.Parameters.AddWithValue("@Brevet", cliente.Brevet ?? (object)DBNull.Value);
+            command.Parameters.AddWithValue("@Activo", cliente.Activo); 
         }
 
         public static Cliente MapearDesdeReader(SqlDataReader reader)
@@ -27,14 +28,16 @@ namespace Mapper
             {
                 IdCliente = reader.GetInt32(reader.GetOrdinal("ID_CLIENTE")),
                 Dni = reader.GetInt32(reader.GetOrdinal("DNI")),
-                Nombre = reader.GetString(reader.GetOrdinal("NOMBRE")),
-                Apellido = reader.GetString(reader.GetOrdinal("APELLIDO")),
-                Telefono = reader.GetString(reader.GetOrdinal("TELEFONO")),
-                TelefonoEnergencia = reader.GetString(reader.GetOrdinal("TELEFONO_EMERGENCIA")),
-                Email = reader.GetString(reader.GetOrdinal("EMAIL")),
-                Brevet = reader.GetString(reader.GetOrdinal("BREVET")),
-                Activo = reader.GetBoolean(reader.GetOrdinal("ACTIVO"))
+                Nombre = reader.IsDBNull(reader.GetOrdinal("NOMBRE")) ? string.Empty : reader.GetString(reader.GetOrdinal("NOMBRE")),
+                Apellido = reader.IsDBNull(reader.GetOrdinal("APELLIDO")) ? string.Empty : reader.GetString(reader.GetOrdinal("APELLIDO")),
+                Telefono = reader.IsDBNull(reader.GetOrdinal("TELEFONO")) ? string.Empty : reader.GetString(reader.GetOrdinal("TELEFONO")),
+                TelefonoEmergencia = reader.IsDBNull(reader.GetOrdinal("TELEFONO_EMERGENCIA")) ? string.Empty : reader.GetString(reader.GetOrdinal("TELEFONO_EMERGENCIA")),
+                Email = reader.IsDBNull(reader.GetOrdinal("EMAIL")) ? string.Empty : reader.GetString(reader.GetOrdinal("EMAIL")),
+                Brevet = reader.IsDBNull(reader.GetOrdinal("BREVET")) ? null : reader.GetString(reader.GetOrdinal("BREVET")),
+                Activo = reader.IsDBNull(reader.GetOrdinal("ACTIVO")) ? false : reader.GetBoolean(reader.GetOrdinal("ACTIVO"))
             };
         }
+
     }
+
 }
