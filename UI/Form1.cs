@@ -12,9 +12,16 @@ namespace UI
 
         }
 
-        private void newMethod()
+        private void button1_Click(object sender, EventArgs e)
         {
+            AltaCliente NuevoCliente = new AltaCliente();
+            NuevoCliente.Show();
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ActualizarCliente  ModiCliente = new ActualizarCliente(); 
+            ModiCliente.Show();
         }
     }
 }
