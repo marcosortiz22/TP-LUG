@@ -14,7 +14,7 @@ namespace Entity
         public string Marca { get; set; }
         public string Modelo { get; set; }
 
-        public int Revision100Hs { get; set; }
+        public decimal Revision100Hs { get; set; }
         public DateTime FechaRevisionAnual { get; set; }
         public bool Activo { get; set; }
     }
