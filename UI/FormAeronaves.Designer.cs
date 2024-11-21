@@ -38,6 +38,7 @@
             label2 = new Label();
             label3 = new Label();
             btn_RealizarService = new Button();
+            comboBox1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgv_Aeronaves).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgv_AeronavesTaller).BeginInit();
             SuspendLayout();
@@ -136,11 +137,20 @@
             btn_RealizarService.UseVisualStyleBackColor = true;
             btn_RealizarService.Click += btn_RealizarService_Click;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(828, 429);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(184, 23);
+            comboBox1.TabIndex = 10;
+            // 
             // FormAeronaves
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1087, 553);
+            Controls.Add(comboBox1);
             Controls.Add(btn_RealizarService);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -172,5 +182,6 @@
         private Label label2;
         private Label label3;
         private Button btn_RealizarService;
+        private ComboBox comboBox1;
     }
 }

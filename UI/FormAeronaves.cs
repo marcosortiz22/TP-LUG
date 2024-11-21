@@ -17,6 +17,7 @@ namespace UI
     {
 
         AeronaveBLL aeronaveBLO = new AeronaveBLL();
+        FinalidadBLL finalidadBLO = new FinalidadBLL();
         public FormAeronaves()
         {
             InitializeComponent();
@@ -27,6 +28,32 @@ namespace UI
             CargarGrillaAeronaves();
             CargarGrillaAeronavesTaller();
             CargarCmBoxAeronavesDisp();
+            CargarCmbBoxFinalidadTeat();
+        }
+
+        private void CargarCmbBoxFinalidadTeat()
+        {
+            try
+            {
+                comboBox1.DataSource = null;
+                if (finalidadBLO.ObtenerFinalidadesActivas(finalidadBLO.ObtenerFinalidades()).Count > 0)
+                {
+                    comboBox1.DataSource = finalidadBLO.ObtenerFinalidadesActivas(finalidadBLO.ObtenerFinalidades());
+                    comboBox1.ValueMember = "CodigoFinalidad";
+                    comboBox1.Format += (sender, e) =>
+                    {
+                        if (e.ListItem is Finalidad finalidad)
+                        {
+                            e.Value = $"{finalidad.CodigoFinalidad} - {finalidad.Descripcion}";
+                        }
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void CargarCmBoxAeronavesDisp()
@@ -151,7 +178,7 @@ namespace UI
                 Aeronave aeronaveMod = new Aeronave();
                 aeronaveMod = dgv_AeronavesTaller.SelectedRows[0].DataBoundItem as Aeronave;
                 aeronaveMod.Revision100Hs = 0;
-                aeronaveBLO.ActualizarService100Hs(aeronaveMod.Matricula,aeronaveMod.Revision100Hs);
+                aeronaveBLO.ActualizarService100Hs(aeronaveMod.Matricula, aeronaveMod.Revision100Hs);
                 CargarGrillaAeronaves();
                 CargarGrillaAeronavesTaller();
                 CargarCmBoxAeronavesDisp();
