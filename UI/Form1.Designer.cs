@@ -76,6 +76,7 @@
             Bajabtn.TabIndex = 16;
             Bajabtn.Text = "Baja de cliente ";
             Bajabtn.UseVisualStyleBackColor = true;
+            Bajabtn.Click += Bajabtn_Click;
             // 
             // Modificarbtn
             // 
