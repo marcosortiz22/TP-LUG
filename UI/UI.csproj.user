@@ -10,5 +10,14 @@
     <Compile Update="AltaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormAeronaveAlta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormAeronaves.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormModificarAeronave.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
