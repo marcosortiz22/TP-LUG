@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace BLL
 {
@@ -17,10 +18,14 @@ namespace BLL
             try
             {
                 ValidarInstructor(instructor);
-
+                
                 instructor.Activo= true;
-
-                instructorData.AgregarInstructor(instructor);
+                using(TransactionScope trx = new TransactionScope())
+                {
+                    instructorData.AgregarInstructor(instructor);
+                    trx.Complete();
+                }
+               
             }
             catch (Exception ex)
             {
