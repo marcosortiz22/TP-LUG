@@ -34,7 +34,7 @@ namespace DAL
             }
         }
 
-        public Vuelo ObtenerVueloPorId(int id)
+        public Vuelo ObtenerVueloPorCod(int cod)
         {
             try
             {
@@ -42,12 +42,14 @@ namespace DAL
                 {
                     conexion.Open();
 
-                    string query = "SELECT COD_VUELO, FECHA_VUELO, ID_INSTRUCTOR, ID_CLIENTE, MATRICULA_AERONAVE, COD_FINALIDAD, HORA_PM, HORA_CORTE, HUB_INICIAL, HUB_FINAL " +
-                                   "FROM VUELO WHERE COD_VUELO = @Id";
+                    string query = " SELECT COD_VUELO, FECHA_VUELO, ID_INSTRUCTOR, MATRICULA_AERONAVE, COD_FINALIDAD, HORA_PM, HORA_CORTE, HUB_INICIAL, HUB_FINAL, " +
+                                   " ID_CLIENTE, DNI, NOMBRE, APELLIDO, TELEFONO, TELEFONO_EMERGENCIA, EMAIL, BREVET, ACTIVO " +
+                                   " FROM VUELO V INNER JOIN CLIENTE C ON V.ID_CLIENTE = C.ID_CLIENTE " +
+                                   " WHERE COD_VUELO = @Cod ";
 
                     using (SqlCommand command = new SqlCommand(query, conexion))
                     {
-                        command.Parameters.AddWithValue("@Id", id);
+                        command.Parameters.AddWithValue("@Cod", cod);
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -99,7 +101,7 @@ namespace DAL
             }
         }
 
-        public void EliminarVuelo(int id)
+        public void EliminarVuelo(int cod)
         {
             try
             {
@@ -107,10 +109,10 @@ namespace DAL
                 {
                     conexion.Open();
 
-                    string query = "DELETE FROM VUELO WHERE COD_VUELO = @Id";
+                    string query = "DELETE FROM VUELO WHERE COD_VUELO = @Cod";
                     using (SqlCommand command = new SqlCommand(query, conexion))
                     {
-                        command.Parameters.AddWithValue("@Id", id);
+                        command.Parameters.AddWithValue("@Cod", cod);
                         command.ExecuteNonQuery();
                     }
                 }

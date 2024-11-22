@@ -9,10 +9,14 @@ namespace BLL
     public class VueloBLL
     {
         private readonly VueloData _vueloData;
+        private readonly ClienteData _clienteData;
+        private readonly AeronaveData _aeronaveData;
 
         public VueloBLL()
         {
             _vueloData = new VueloData();
+            _clienteData = new ClienteData();
+            _aeronaveData = new AeronaveData();
         }
 
         public void CrearVuelo(Vuelo vuelo)
@@ -27,6 +31,9 @@ namespace BLL
                     vuelo.AeronaveVuelo.Revision100Hs += vuelo.TV;
 
                     _vueloData.AgregarVuelo(vuelo);
+                    _clienteData.ActualizarSaldoHoras(vuelo.ClientVuelo.IdCliente, vuelo.ClientVuelo.SaldoHoras);
+                    _aeronaveData.
+                    trx.Complete();
                 }
             }
             catch (Exception ex)
@@ -44,7 +51,7 @@ namespace BLL
                     throw new ArgumentException("El ID del vuelo debe ser un número positivo.");
                 }
 
-                var vuelo = _vueloData.ObtenerVueloPorId(id);
+                var vuelo = _vueloData.ObtenerVueloPorCod(id);
 
                 if (vuelo == null)
                 {
