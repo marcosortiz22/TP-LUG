@@ -17,5 +17,7 @@ namespace Entity
         public decimal Revision100Hs { get; set; }
         public DateTime FechaRevisionAnual { get; set; }
         public bool Activo { get; set; }
+
+     
     }
 }
