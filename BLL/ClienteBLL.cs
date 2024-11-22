@@ -73,6 +73,13 @@ namespace BLL
                     throw new ArgumentException("El cliente no es válido para la actualización.");
                 }
 
+                var clienteExistente = clienteData.ObtenerClientePorId(cliente.IdCliente);
+                if (clienteExistente == null)
+                {
+                    throw new Exception($"No se encontró un cliente con el ID {cliente.IdCliente}.");
+                }
+
+
                 ValidarCliente(cliente);
 
                 clienteData.ActualizarCliente(cliente);
@@ -83,16 +90,23 @@ namespace BLL
             }
         }
 
-        public void EliminarCliente(int id)
+        public void EliminarCliente(int idCliente)
         {
             try
             {
-                if (id <= 0)
+                if (idCliente <= 0)
                 {
                     throw new ArgumentException("El ID del cliente debe ser un número positivo.");
                 }
 
-                clienteData.EliminarCliente(id);
+                var clienteExistente = clienteData.ObtenerClientePorId(idCliente);
+                if (clienteExistente == null)
+                {
+                    throw new Exception($"No se encontró un cliente con el ID {idCliente}.");
+                }
+
+
+                clienteData.EliminarCliente(idCliente);
             }
             catch (Exception ex)
             {
