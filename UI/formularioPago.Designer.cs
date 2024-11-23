@@ -36,12 +36,14 @@
             textValorHora = new TextBox();
             textCantidadHora = new TextBox();
             textTotal = new TextBox();
+            label5 = new Label();
+            textFactura = new TextBox();
             SuspendLayout();
             // 
             // comboCliente
             // 
             comboCliente.FormattingEnabled = true;
-            comboCliente.Location = new Point(270, 88);
+            comboCliente.Location = new Point(458, 67);
             comboCliente.Name = "comboCliente";
             comboCliente.Size = new Size(182, 33);
             comboCliente.TabIndex = 0;
@@ -49,7 +51,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(367, 25);
+            label1.Location = new Point(506, 18);
             label1.Name = "label1";
             label1.Size = new Size(65, 25);
             label1.TabIndex = 1;
@@ -103,11 +105,29 @@
             textTotal.Size = new Size(150, 31);
             textTotal.TabIndex = 7;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(506, 171);
+            label5.Name = "label5";
+            label5.Size = new Size(68, 25);
+            label5.TabIndex = 8;
+            label5.Text = "Factura";
+            // 
+            // textFactura
+            // 
+            textFactura.Location = new Point(458, 220);
+            textFactura.Name = "textFactura";
+            textFactura.Size = new Size(150, 31);
+            textFactura.TabIndex = 9;
+            // 
             // formularioPago
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(589, 450);
+            ClientSize = new Size(678, 450);
+            Controls.Add(textFactura);
+            Controls.Add(label5);
             Controls.Add(textTotal);
             Controls.Add(textCantidadHora);
             Controls.Add(textValorHora);
@@ -132,5 +152,7 @@
         private TextBox textValorHora;
         private TextBox textCantidadHora;
         private TextBox textTotal;
+        private Label label5;
+        private TextBox textFactura;
     }
 }
