@@ -16,6 +16,12 @@
     <Compile Update="FormAeronaves.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormInstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormInstructorAlta-Mod.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormModificarAeronave.cs">
       <SubType>Form</SubType>
     </Compile>
