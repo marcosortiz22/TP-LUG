@@ -19,5 +19,11 @@
     <Compile Update="FormModificarAeronave.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormVueloABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormVuelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

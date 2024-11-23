@@ -70,11 +70,11 @@ public class VueloBLL
         }
     }
 
-    public List<Vuelo> ObtenerTodosLosVuelos()
+    public List<VistaVuelo> ObtenerTodosVista()
     {
         try
         {
-            return _vueloData.ObtenerTodos();
+            return _vueloData.ObtenerTodosVista();
         }
         catch (Exception ex)
         {
