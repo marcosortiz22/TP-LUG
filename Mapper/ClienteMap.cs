@@ -38,5 +38,21 @@ namespace Mapper
                 SaldoHoras = reader.IsDBNull(reader.GetOrdinal("SALDO_HORAS")) ? 0 : reader.GetDecimal(reader.GetOrdinal("SALDO_HORAS"))
             };
         }
+
+        public static Cliente MapearDesdeReaderVuelo(SqlDataReader reader)
+        {
+
+            return new Cliente
+            {
+                IdCliente = reader.GetInt32(reader.GetOrdinal("ID_CLIENTE")),
+                Dni = reader.GetInt32(reader.GetOrdinal("ClienteDNI")),
+                Nombre = reader.IsDBNull(reader.GetOrdinal("ClienteNombre")) ? string.Empty : reader.GetString(reader.GetOrdinal("ClienteNombre")),
+                Apellido = reader.IsDBNull(reader.GetOrdinal("ClienteApellido")) ? string.Empty : reader.GetString(reader.GetOrdinal("ClienteApellido")),
+                Telefono = reader.IsDBNull(reader.GetOrdinal("ClienteTelefono")) ? string.Empty : reader.GetString(reader.GetOrdinal("ClienteTelefono")),
+                Email = reader.IsDBNull(reader.GetOrdinal("ClienteEmail")) ? string.Empty : reader.GetString(reader.GetOrdinal("ClienteEmail")),
+                Brevet = reader.IsDBNull(reader.GetOrdinal("ClienteBrevet")) ? null : reader.GetString(reader.GetOrdinal("ClienteBrevet")),
+            };
+        }
+
     }
 }

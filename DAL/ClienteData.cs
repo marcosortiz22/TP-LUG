@@ -145,5 +145,29 @@ namespace DAL
                 throw new Exception("Error al actualizar cliente: " + ex.Message, ex);
             }
         }
+
+        public void ActualizarSaldoHoras(int id, decimal saldoHoras)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(conexionDB))
+                {
+                    conexion.Open();
+
+                    string query = "UPDATE CLIENTE SET SALDO_HORAS = @SaldoHoras WHERE ID_CLIENTE = @Id";
+
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+                        command.Parameters.AddWithValue("@Id", id);
+                        command.Parameters.AddWithValue("@SaldoHoras", saldoHoras);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar horas cliente: " + ex.Message, ex);
+            }
+        }
     }
 }

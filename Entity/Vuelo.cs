@@ -1,77 +1,68 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Entity;
 
-namespace Entity
+public class Vuelo
 {
-    public class Vuelo
+    public int CodVuelo { get; set; }
+    public DateTime FechaVuelo { get; set; }
+    public Instructor InstructorVuelo { get; set; }
+    public Cliente ClientVuelo { get; set; }
+    public Aeronave AeronaveVuelo { get; set; }
+    public Finalidad FinalidadVuelo { get; set; }
+    public TimeOnly HoraPM { get; set; }
+    public TimeOnly HoraCorte { get; set; }
+
+    private decimal _tv;
+    public decimal TV
     {
-        public int Cod_Vuelo { get; set; }
-        public DateTime FechaVuelo { get; set; }
-        public Instructor InstructorVuelo { get; set; }
-        public Cliente ClientVuelo { get; set; }
-        public Aeronave AeronaveVuelo { get; set; }
-        public Finalidad FinalidadVuelo { get; set; }
-        public TimeOnly HoraPM { get; set; }
-        public TimeOnly HoraCorte { get; set; }
-
-        private decimal _tv;
-        public decimal TV
+        get => _tv;
+        set
         {
-            get { return _tv; }
-            set
+            // Calcular la diferencia de tiempo considerando la posibilidad de cambio de día
+            var horaCorteTimeSpan = HoraCorte.ToTimeSpan();
+            var horaPmTimeSpan = HoraPM.ToTimeSpan();
+            var diferenciaMinutos = (horaCorteTimeSpan - horaPmTimeSpan).TotalMinutes;
+
+            if (diferenciaMinutos < 0) // Si la hora de corte es el día siguiente
             {
-                int diferenciaMinutos;
-                if (HoraCorte > HoraPM)
-                {
-                    diferenciaMinutos = (HoraCorte.Hour - HoraPM.Hour) * 60 + (HoraCorte.Minute - HoraPM.Minute);
-                }
-                else
-                {
-                    diferenciaMinutos = (24 - HoraPM.Hour + HoraCorte.Hour) * 60 + (HoraCorte.Minute - HoraPM.Minute);
-                }
-
-              
-                int horasCompletas = diferenciaMinutos / 60;
-                int minutosResiduales = diferenciaMinutos % 60;
-
-        
-                decimal ajuste = 0;
-                if (minutosResiduales< 0 && minutosResiduales <=2) ajuste = 0;
-                else if (minutosResiduales <= 8) ajuste = 0.1m;
-                else if (minutosResiduales <= 14) ajuste = 0.2m;
-                else if (minutosResiduales <= 20) ajuste = 0.3m;
-                else if (minutosResiduales <= 26) ajuste = 0.4m;
-                else if (minutosResiduales <= 33) ajuste = 0.5m;
-                else if (minutosResiduales <= 39) ajuste = 0.6m;
-                else if (minutosResiduales <= 45) ajuste = 0.7m;
-                else if (minutosResiduales <= 51) ajuste = 0.8m;
-                else if (minutosResiduales <= 57) ajuste = 0.9m;
-                else ajuste = 1;
-
-                
-                _tv = horasCompletas + ajuste;
+                diferenciaMinutos += TimeSpan.FromDays(1).TotalMinutes;
             }
-            
+
+            var horasCompletas = (int)diferenciaMinutos / 60;
+            var minutosResiduales = (int)diferenciaMinutos % 60;
+
+            var ajuste = minutosResiduales switch
+            {
+                <= 2 => 0m,
+                <= 8 => 0.1m,
+                <= 14 => 0.2m,
+                <= 20 => 0.3m,
+                <= 26 => 0.4m,
+                <= 33 => 0.5m,
+                <= 39 => 0.6m,
+                <= 45 => 0.7m,
+                <= 51 => 0.8m,
+                <= 57 => 0.9m,
+                _ => 1m
+            };
+
+            _tv = horasCompletas + ajuste;
         }
+    }
 
-        public decimal HubInicial { get; set; }
 
-        public decimal HubFinal { get; set; }
+    public decimal HubInicial { get; set; }
 
-        private decimal _hubdiff;
+    public decimal HubFinal { get; set; }
 
-        public decimal HubDiff
+    private decimal _hubdiff;
+
+    public decimal HubDiff
+    {
+        get { return _hubdiff; }
+        set 
         {
-            get { return _hubdiff; }
-            set 
-            {
-                _hubdiff = HubFinal - HubInicial;
-            }
+            _hubdiff = HubFinal - HubInicial;
         }
-
     }
 
 }

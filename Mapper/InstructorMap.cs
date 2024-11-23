@@ -31,5 +31,18 @@ namespace Mapper
                 Activo = reader.IsDBNull(reader.GetOrdinal("ACTIVO")) ? false : reader.GetBoolean(reader.GetOrdinal("ACTIVO"))
             };
         }
+
+        public static Instructor MapearDesdeReaderVuelo(SqlDataReader reader)
+        {
+            return new Instructor
+            {
+                IdInstructor = reader.GetInt32(reader.GetOrdinal("ID_INSTRUCTOR")),
+                Dni = reader.GetInt32(reader.GetOrdinal("InstructorDNI")),
+                Nombre = reader.IsDBNull(reader.GetOrdinal("InstructorNombre")) ? string.Empty : reader.GetString(reader.GetOrdinal("InstructorNombre")),
+                Apellido = reader.IsDBNull(reader.GetOrdinal("InstructorApellido")) ? string.Empty : reader.GetString(reader.GetOrdinal("InstructorApellido")),
+                Brevet = reader.IsDBNull(reader.GetOrdinal("InstructorBrevet")) ? null : reader.GetString(reader.GetOrdinal("InstructorBrevet")),
+                Activo = reader.IsDBNull(reader.GetOrdinal("InstructorActivo")) ? false : reader.GetBoolean(reader.GetOrdinal("InstructorActivo"))
+            };
+        }
     }
 }
