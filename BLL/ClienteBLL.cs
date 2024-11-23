@@ -173,7 +173,6 @@ namespace BLL
                 throw new ArgumentException("El correo electrónico debe ser válido y contener '@'.");
             }
         }
-    }
 
         private bool IsEmailValido(string email)
         {
@@ -187,5 +186,9 @@ namespace BLL
                 return false;
             }
         }
+    }
+    
+
+    
     }
 
