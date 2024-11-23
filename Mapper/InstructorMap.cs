@@ -31,5 +31,6 @@ namespace Mapper
                 Activo = reader.IsDBNull(reader.GetOrdinal("ACTIVO")) ? false : reader.GetBoolean(reader.GetOrdinal("ACTIVO"))
             };
         }
+
     }
 }
