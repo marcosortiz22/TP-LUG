@@ -50,7 +50,7 @@ namespace UI
                 Form1 formPrincipal = (Form1)this.Owner;
                 formPrincipal.ActualizarDgvClientes();
 
-                this.Close();
+                this.Close();//este esta demas?
 
                 MessageBox.Show("Cliente actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
