@@ -25,22 +25,10 @@ public class VueloMap
         {
             CodVuelo = reader.GetInt32(reader.GetOrdinal("COD_VUELO")),
             FechaVuelo = reader.GetDateTime(reader.GetOrdinal("FECHA_VUELO")),
-            InstructorVuelo = reader.IsDBNull(reader.GetOrdinal("ID_INSTRUCTOR")) ? null : new Instructor
-            {
-                IdInstructor = reader.GetInt32(reader.GetOrdinal("ID_INSTRUCTOR"))
-            },
-            ClientVuelo = reader.IsDBNull(reader.GetOrdinal("ID_CLIENTE")) ? null : new Cliente
-            {
-                IdCliente = reader.GetInt32(reader.GetOrdinal("ID_CLIENTE"))
-            },
-            AeronaveVuelo = reader.IsDBNull(reader.GetOrdinal("MATRICULA_AERONAVE")) ? null : new Aeronave
-            {
-                MatriculaAeronave = reader.GetString(reader.GetOrdinal("MATRICULA_AERONAVE"))
-            },
-            FinalidadVuelo = reader.IsDBNull(reader.GetOrdinal("COD_FINALIDAD")) ? null : new Finalidad
-            {
-                CodFinalidad = reader.GetString(reader.GetOrdinal("COD_FINALIDAD"))
-            },
+            InstructorVuelo = InstructorMap.MapearDesdeReaderVuelo(reader),
+            ClientVuelo = ClienteMap.MapearDesdeReaderVuelo(reader),
+            AeronaveVuelo = AeronaveMap.MapAeronave(reader),
+            FinalidadVuelo = FinalidadMap.MapFinalidad(reader),
             HoraPM = TimeOnly.Parse(reader.GetTimeSpan(reader.GetOrdinal("HORA_PM")).ToString()),
             HoraCorte = TimeOnly.Parse(reader.GetTimeSpan(reader.GetOrdinal("HORA_CORTE")).ToString()),
             HubInicial = reader.GetDecimal(reader.GetOrdinal("HUB_INICIAL")),
