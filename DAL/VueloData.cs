@@ -80,7 +80,7 @@ public class VueloData
                                         V.HORA_PM, V.HORA_CORTE, V.HUB_INICIAL, V.HUB_FINAL,
                                         C.DNI AS ClienteDNI, C.NOMBRE AS ClienteNombre, C.APELLIDO AS ClienteApellido, 
                                         C.TELEFONO AS ClienteTelefono, C.EMAIL AS ClienteEmail, C.BREVET AS ClienteBrevet,
-                                        I.DNI AS InstructorDNI, I.NOMBRE AS InstructorNombre, I.APELLIDO AS InstructorApellido, I.BREVET AS InstructorBrevet
+                                        I.DNI AS InstructorDNI, I.NOMBRE AS InstructorNombre, I.APELLIDO AS InstructorApellido, I.BREVET AS InstructorBrevet,
                                         A.MARCA_AERONAVE, A.MODELO_AERONAVE, A.REVISION_100HS,
                                         F.DESCRIPCION
                                     FROM VUELO V
