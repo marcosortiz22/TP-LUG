@@ -1,10 +1,5 @@
 ﻿using Entity;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mapper
 {
@@ -19,7 +14,12 @@ namespace Mapper
             command.Parameters.AddWithValue("@TelefonoEmergencia", cliente.TelefonoEmergencia);
             command.Parameters.AddWithValue("@Email", cliente.Email);
             command.Parameters.AddWithValue("@Brevet", cliente.Brevet ?? (object)DBNull.Value);
-            command.Parameters.AddWithValue("@Activo", cliente.Activo); 
+            command.Parameters.AddWithValue("@Activo", cliente.Activo);
+
+            if (command.CommandText.Contains("UPDATE"))
+            {
+                command.Parameters.AddWithValue("@SaldoHoras", cliente.SaldoHoras);
+            }
         }
 
         public static Cliente MapearDesdeReader(SqlDataReader reader)
@@ -34,10 +34,9 @@ namespace Mapper
                 TelefonoEmergencia = reader.IsDBNull(reader.GetOrdinal("TELEFONO_EMERGENCIA")) ? string.Empty : reader.GetString(reader.GetOrdinal("TELEFONO_EMERGENCIA")),
                 Email = reader.IsDBNull(reader.GetOrdinal("EMAIL")) ? string.Empty : reader.GetString(reader.GetOrdinal("EMAIL")),
                 Brevet = reader.IsDBNull(reader.GetOrdinal("BREVET")) ? null : reader.GetString(reader.GetOrdinal("BREVET")),
-                Activo = reader.IsDBNull(reader.GetOrdinal("ACTIVO")) ? false : reader.GetBoolean(reader.GetOrdinal("ACTIVO"))
+                Activo = reader.IsDBNull(reader.GetOrdinal("ACTIVO")) ? false : reader.GetBoolean(reader.GetOrdinal("ACTIVO")),
+                SaldoHoras = reader.IsDBNull(reader.GetOrdinal("SALDO_HORAS")) ? 0 : reader.GetDecimal(reader.GetOrdinal("SALDO_HORAS"))
             };
         }
-
     }
-
 }
