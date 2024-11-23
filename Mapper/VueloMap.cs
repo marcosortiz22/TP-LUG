@@ -11,8 +11,8 @@ public class VueloMap
         command.Parameters.AddWithValue("@FechaVuelo", vuelo.FechaVuelo);
         command.Parameters.AddWithValue("@IdInstructor", vuelo.InstructorVuelo?.IdInstructor ?? (object)DBNull.Value);
         command.Parameters.AddWithValue("@IdCliente", vuelo.ClientVuelo?.IdCliente ?? (object)DBNull.Value);
-        command.Parameters.AddWithValue("@MatriculaAeronave", vuelo.AeronaveVuelo?.MatriculaAeronave ?? (object)DBNull.Value);
-        command.Parameters.AddWithValue("@CodFinalidad", vuelo.FinalidadVuelo?.CodFinalidad ?? (object)DBNull.Value);
+        command.Parameters.AddWithValue("@MatriculaAeronave", vuelo.AeronaveVuelo?.Matricula ?? (object)DBNull.Value);
+        command.Parameters.AddWithValue("@CodFinalidad", vuelo.FinalidadVuelo?.CodigoFinalidad ?? (object)DBNull.Value);
         command.Parameters.AddWithValue("@HoraPM", vuelo.HoraPM.ToString("HH:mm:ss"));
         command.Parameters.AddWithValue("@HoraCorte", vuelo.HoraCorte.ToString("HH:mm:ss"));
         command.Parameters.AddWithValue("@HubInicial", vuelo.HubInicial);
