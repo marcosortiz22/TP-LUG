@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
+    
+    
+
     public class Pago
     {
         public int NroFactura { get; set; }
@@ -15,5 +18,18 @@ namespace Entity
         public decimal ValorHora { get; set; }
 
         public decimal MontoPago { get; set; }
+
+        public void CalcularMonto(decimal cantidadHoras, decimal valorHora)
+        {
+            if (cantidadHoras < 0 || valorHora < 0)
+            {
+                throw new InvalidOperationException("Cantidad de horas y valor por hora no pueden ser negativos.");
+            }
+
+            CantidadHoras = cantidadHoras; // Opcional: actualiza las propiedades
+            ValorHora = valorHora;
+            MontoPago = cantidadHoras * valorHora;
+        }
     }
 }
+
