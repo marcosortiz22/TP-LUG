@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Transactions;
 
@@ -18,13 +19,14 @@ namespace BLL
             try
             {
                 ValidarInstructor(instructor);
-                
+                if (instructorData.ObtenerInstrctorPorDNI(instructor.Dni) != null) throw new Exception("El dni que desea dar alta ya se encuentra registrado");
                 instructor.Activo= true;
-                using(TransactionScope trx = new TransactionScope())
+                using (TransactionScope trx = new TransactionScope())
                 {
                     instructorData.AgregarInstructor(instructor);
-                    trx.Complete();
+                     trx.Complete();
                 }
+
                
             }
             catch (Exception ex)
@@ -68,6 +70,17 @@ namespace BLL
                 throw new Exception("Error al obtener la lista de instructores: " + ex.Message, ex);
             }
         }
+        public List<Instructor> ObtenerTodosLosActivos()
+        {
+            try
+            {
+                return instructorData.ObtenerActivos();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener la lista de instructores: " + ex.Message, ex);
+            }
+        }
 
         public void ActualizarInstructor(Instructor instructor)
         {
@@ -77,10 +90,14 @@ namespace BLL
                 {
                     throw new ArgumentException("El instructor no es válido para la actualización.");
                 }
-
+                if (instructorData.ObtenerInstructorPorId(instructor.IdInstructor) == null) throw new Exception("No se encontro el instructor en la base de datos para modificar");
                 ValidarInstructor(instructor);
-
-               instructorData.ActualizarInstructor(instructor);
+                using (TransactionScope trx = new TransactionScope())
+                {
+                    instructorData.ActualizarInstructor(instructor);
+                    trx.Complete();
+                }
+               
             }
             catch (Exception ex)
             {
@@ -96,8 +113,14 @@ namespace BLL
                 {
                     throw new ArgumentException("El ID del insructor debe ser un número positivo.");
                 }
+                if(instructorData.ObtenerInstructorPorId(id)==null) throw new Exception("No se encontro el instructor en la base de datos para eliminar");
 
-               instructorData.EliminarInstructor(id);
+                using (TransactionScope trx = new TransactionScope())
+                {
+                    instructorData.EliminarInstructor(id);
+                    trx.Complete();
+                }
+               
             }
             catch (Exception ex)
             {
@@ -116,21 +139,34 @@ namespace BLL
             {
                 throw new ArgumentException("El DNI debe ser un número positivo.");
             }
+            if (!Regex.IsMatch(instructor.Dni.ToString(), @"^\d{1,8}$"))
+            {
+                throw new ArgumentException("El DNI debe ser un número positivo y tener como máximo 8 dígitos.");
+            }
 
             if (string.IsNullOrWhiteSpace(instructor.Nombre))
             {
                 throw new ArgumentException("El nombre no puede estar vacío.");
+            }
+            if (!Regex.IsMatch(instructor.Nombre, @"^[a-zA-Z]+$"))
+            {
+                throw new ArgumentException("El nombre no puede contener numeros ni signos");
             }
 
             if (string.IsNullOrWhiteSpace(instructor.Apellido))
             {
                 throw new ArgumentException("El apellido no puede estar vacío.");
             }
+            if (!Regex.IsMatch(instructor.Apellido, @"^[a-zA-Z]+$"))
+            {
+                throw new ArgumentException("El apellido no puede contener numeros ni signos");
+            }
 
             if (string.IsNullOrWhiteSpace(instructor.Brevet))
             {
                 throw new ArgumentException("El Brevet no puede estar vacío.");
             }
+            if (!Regex.IsMatch(instructor.Brevet, @"^B\d+$")) throw new Exception("Formato de brevet erroneo, debe comenzar con la letra B y luego ser numerico");
         }
 
         
