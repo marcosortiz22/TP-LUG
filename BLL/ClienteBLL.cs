@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BLL
@@ -125,25 +126,51 @@ namespace BLL
             {
                 throw new ArgumentException("El DNI debe ser un número positivo.");
             }
+            if (!Regex.IsMatch(cliente.Dni.ToString(), @"^\d{1,8}$"))
+            {
+                throw new ArgumentException("El DNI debe ser un número positivo y tener como máximo 8 dígitos.");
+            }
 
             if (string.IsNullOrWhiteSpace(cliente.Nombre))
             {
                 throw new ArgumentException("El nombre no puede estar vacío.");
             }
-
+            if (!Regex.IsMatch(cliente.Nombre, @"^[a-zA-Z]+$"))
+            {
+                    throw new ArgumentException("El nombre no puede contener numeros ni signos");
+            }
+            
+            
             if (string.IsNullOrWhiteSpace(cliente.Apellido))
             {
                 throw new ArgumentException("El apellido no puede estar vacío.");
+            }
+
+            if (!Regex.IsMatch(cliente.Apellido, @"^[a-zA-Z]+$"))
+            {
+                throw new ArgumentException("El apellido no puede contener numeros ni signos");
             }
 
             if (string.IsNullOrWhiteSpace(cliente.Telefono))
             {
                 throw new ArgumentException("El teléfono no puede estar vacío.");
             }
+            if(!Regex.IsMatch(cliente.Telefono, @"^\d{1,10}$"))
+            {
+                throw new ArgumentException("el telefono debe tener  10 digitos");
+            }
 
+            if (string.IsNullOrWhiteSpace(cliente.TelefonoEmergencia) || !Regex.IsMatch(cliente.TelefonoEmergencia, @"^\d{1,10}$"))
+            {
+                throw new ArgumentException("El teléfono de emergencia no puede estar vacío y debe tener como máximo 10 dígitos.");
+            }
             if (!IsEmailValido(cliente.Email))
             {
                 throw new ArgumentException("El email no tiene un formato válido.");
+            }
+            if (string.IsNullOrWhiteSpace(cliente.Email) || !Regex.IsMatch(cliente.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            { 
+                throw new ArgumentException("El correo electrónico debe ser válido y contener '@'.");
             }
         }
 
@@ -160,4 +187,8 @@ namespace BLL
             }
         }
     }
-}
+    
+
+    
+    }
+
