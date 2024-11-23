@@ -66,28 +66,22 @@ public class VueloData
         }
     }
 
-    public List<Vuelo> ObtenerTodos()
+    public List<VistaVuelo> ObtenerTodosVista()
     {
         try
         {
-            List<Vuelo> vuelos = new List<Vuelo>();
+            List<VistaVuelo> vuelos = new List<VistaVuelo>();
 
             using (SqlConnection conexion = new SqlConnection(conexionDB))
             {
                 conexion.Open();
 
-                string query = @"SELECT V.COD_VUELO, V.FECHA_VUELO, V.ID_INSTRUCTOR, V.ID_CLIENTE, V.MATRICULA_AERONAVE, V.COD_FINALIDAD, 
-                                        V.HORA_PM, V.HORA_CORTE, V.HUB_INICIAL, V.HUB_FINAL,
-                                        C.DNI AS ClienteDNI, C.NOMBRE AS ClienteNombre, C.APELLIDO AS ClienteApellido, 
-                                        C.TELEFONO AS ClienteTelefono, C.EMAIL AS ClienteEmail, C.BREVET AS ClienteBrevet,
-                                        I.DNI AS InstructorDNI, I.NOMBRE AS InstructorNombre, I.APELLIDO AS InstructorApellido, I.BREVET AS InstructorBrevet,
-                                        A.MARCA_AERONAVE, A.MODELO_AERONAVE, A.REVISION_100HS,
-                                        F.DESCRIPCION
-                                    FROM VUELO V
-                                    LEFT JOIN CLIENTE C ON V.ID_CLIENTE = C.ID_CLIENTE
-                                    LEFT JOIN INSTRUCTOR I ON V.ID_INSTRUCTOR = I.ID_INSTRUCTOR
-                                    LEFT JOIN AERONAVE A ON V.MATRICULA_AERONAVE = A.MATRICULA_AERONAVE
-                                    LEFT JOIN FINALIDAD F ON V.COD_FINALIDAD = F.COD_FINALIDAD";
+                string query = @" SELECT V.COD_VUELO, V.FECHA_VUELO, V.COD_FINALIDAD, V.HORA_PM, V.HORA_CORTE, V.HUB_INICIAL, V.HUB_FINAL, V.MATRICULA_AERONAVE,
+                                    C.ID_CLIENTE, C.DNI AS ClienteDNI, CONCAT(C.NOMBRE, ' ', C.APELLIDO) AS ClienteNombreApellido,
+                                    I.ID_INSTRUCTOR, I.DNI AS InstructorDNI, CONCAT(I.NOMBRE, ' ', I.APELLIDO) AS InstructorNombreApellido
+                                  FROM VUELO V
+                                  LEFT JOIN CLIENTE C ON V.ID_CLIENTE = C.ID_CLIENTE
+                                  LEFT JOIN INSTRUCTOR I ON V.ID_INSTRUCTOR = I.ID_INSTRUCTOR ";
 
                 using (SqlCommand command = new SqlCommand(query, conexion))
                 {
@@ -95,7 +89,7 @@ public class VueloData
                     {
                         while (reader.Read())
                         {
-                            var vuelo = VueloMap.MapearDesdeReader(reader);
+                            var vuelo = VueloMap.MapearVistaDesdeReader(reader);
                             vuelos.Add(vuelo);
                         }
                     }
