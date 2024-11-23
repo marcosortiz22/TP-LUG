@@ -41,7 +41,7 @@ namespace DAL
                 {
                     conexion.Open();
 
-                    string query = "SELECT ID_CLIENTE, DNI, NOMBRE, APELLIDO, TELEFONO, TELEFONO_EMERGENCIA, EMAIL, BREVET, ACTIVO " +
+                    string query = "SELECT ID_CLIENTE, DNI, NOMBRE, APELLIDO, TELEFONO, TELEFONO_EMERGENCIA, EMAIL, SALDO_HORAS, BREVET, ACTIVO " +
                                    "FROM CLIENTE WHERE ID_CLIENTE = @Id";
 
                     using (SqlCommand command = new SqlCommand(query, conexion))
@@ -75,7 +75,7 @@ namespace DAL
                 {
                     conexion.Open();
 
-                    string query = "SELECT ID_CLIENTE, DNI, NOMBRE, APELLIDO, TELEFONO, TELEFONO_EMERGENCIA, EMAIL, BREVET, ACTIVO " +
+                    string query = "SELECT ID_CLIENTE, DNI, NOMBRE, APELLIDO, TELEFONO, TELEFONO_EMERGENCIA, EMAIL, SALDO_HORAS, BREVET, ACTIVO " +
                                    "FROM CLIENTE";
 
                     using (SqlCommand command = new SqlCommand(query, conexion))
@@ -129,7 +129,7 @@ namespace DAL
                     conexion.Open();
 
                     string query = "UPDATE CLIENTE SET DNI = @Dni, NOMBRE = @Nombre, APELLIDO = @Apellido, TELEFONO = @Telefono, " +
-                                   "TELEFONO_EMERGENCIA = @TelefonoEmergencia, EMAIL = @Email, BREVET = @Brevet, ACTIVO = @Activo " +
+                                   "TELEFONO_EMERGENCIA = @TelefonoEmergencia, EMAIL = @Email, BREVET = @Brevet, ACTIVO = @Activo, SALDO_HORAS = @SaldoHoras " +
                                    "WHERE ID_CLIENTE = @Id";
 
                     using (SqlCommand command = new SqlCommand(query, conexion))
