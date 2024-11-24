@@ -64,8 +64,9 @@ namespace UI
                     var result = form.ShowDialog(); // Mostramos el formulario como modal
                     if (result == DialogResult.OK)
                     {
-                        MessageBox.Show("Se cerró el formulario con OK.");
+                        ActualizarGrillaVuelos();
                     }
+                    form.Close();
                 }
             }
             catch (Exception)

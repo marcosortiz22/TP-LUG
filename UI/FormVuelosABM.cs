@@ -13,10 +13,9 @@ namespace UI
         ClienteBLL _clienteBLO = new ClienteBLL();
         InstructorBLL _instructorBLO = new InstructorBLL();
         FinalidadBLL _finalidadBLO = new FinalidadBLL();
-        FormVuelos formVuelos;
         VistaVuelo vueloSeleccionado;
         Vuelo vuelo;
-        public FormVuelosABM( FormVuelos formVuelosPpal,VistaVuelo vistaVuelo = null)
+        public FormVuelosABM(FormVuelos formVuelosPpal, VistaVuelo vistaVuelo = null)
         {
             InitializeComponent();
             CargarCmbAeronavesDisp();
@@ -36,6 +35,11 @@ namespace UI
                 dtpHoraCorte.Value = DateTime.Now.Date.AddTicks(vistaVuelo.HoraCorte.Ticks);
                 nddHubInicial.Value = vistaVuelo.HubInicial;
                 nddHubFinal.Value = vistaVuelo.HubFinal;
+                cmbAeronavesDisp.Enabled = false;
+                cmbCliente.Enabled = false;
+                cmbInstructor.Enabled = false;
+                dtpHoraPM.Enabled = false;
+                dtpHoraCorte.Enabled = false;
             }
         }
 
@@ -147,14 +151,14 @@ namespace UI
                 {
                     _vueloBLO.ActualizarVuelo(vuelo);
                     MessageBox.Show("Modificacion de vuelo exitosa");
-                    formVuelos.ActualizarGrillaVuelos();
+                    this.DialogResult = DialogResult.OK;
 
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Error al actualizar el vuelo");
                 }
-                
+
             }
             else
             {
@@ -162,7 +166,7 @@ namespace UI
                 {
                     _vueloBLO.CrearVuelo(vuelo);
                     MessageBox.Show("Alta de vuelo exitosa");
-                    formVuelos.ActualizarGrillaVuelos();
+                    this.DialogResult = DialogResult.OK;
 
                 }
                 catch (Exception)
@@ -172,6 +176,11 @@ namespace UI
             }
 
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

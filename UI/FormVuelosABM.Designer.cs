@@ -230,8 +230,9 @@
             btnCancelar.TabIndex = 27;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
-            // FormVueloABM
+            // FormVuelosABM
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -256,7 +257,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(cmbAeronavesDisp);
-            Name = "FormVueloABM";
+            Name = "FormVuelosABM";
             Text = "FormVueloABM";
             ((System.ComponentModel.ISupportInitialize)nddHubInicial).EndInit();
             ((System.ComponentModel.ISupportInitialize)nddHubFinal).EndInit();
