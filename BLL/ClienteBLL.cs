@@ -65,6 +65,18 @@ public class ClienteBLL
         }
     }
 
+    public List<Cliente> ObtenerClientesActivos()
+    {
+        try
+        {
+            return clienteData.ObtenerClientesActivos();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Error al obtener la lista de clientes: " + ex.Message, ex);
+        }
+    }
+
     public void ActualizarCliente(Cliente cliente)
     {
         try
@@ -91,7 +103,7 @@ public class ClienteBLL
         }
     }
 
-    public void EliminarCliente(int idCliente)
+    public void DesactivarCliente(int idCliente)
     {
         try
         {
@@ -107,11 +119,11 @@ public class ClienteBLL
             }
 
 
-            clienteData.EliminarCliente(idCliente);
+            clienteData.DesactivarCliente(idCliente);
         }
         catch (Exception ex)
         {
-            throw new Exception("Error al eliminar el cliente: " + ex.Message, ex);
+            throw new Exception("Error al desactivar el cliente: " + ex.Message, ex);
         }
     }
 
@@ -155,14 +167,14 @@ public class ClienteBLL
         {
             throw new ArgumentException("El teléfono no puede estar vacío.");
         }
-        if(!Regex.IsMatch(cliente.Telefono, @"^\d{1,10}$"))
+        if(!Regex.IsMatch(cliente.Telefono, @"^\d{6,20}$"))
         {
-            throw new ArgumentException("el telefono debe tener  10 digitos");
+            throw new ArgumentException("el telefono debe tener al menos 6 digitos");
         }
 
-        if (string.IsNullOrWhiteSpace(cliente.TelefonoEmergencia) || !Regex.IsMatch(cliente.TelefonoEmergencia, @"^\d{1,10}$"))
+        if (string.IsNullOrWhiteSpace(cliente.TelefonoEmergencia) || !Regex.IsMatch(cliente.TelefonoEmergencia, @"^\d{6,20}$"))
         {
-            throw new ArgumentException("El teléfono de emergencia no puede estar vacío y debe tener como máximo 10 dígitos.");
+            throw new ArgumentException("El teléfono de emergencia no puede estar vacío y debe tener como mínimo 6 dígitos.");
         }
         if (!IsEmailValido(cliente.Email))
         {
@@ -172,7 +184,11 @@ public class ClienteBLL
         { 
             throw new ArgumentException("El correo electrónico debe ser válido y contener '@'.");
         }
-        
+
+        if (!string.IsNullOrEmpty(cliente.Brevet))
+        {
+            if (!Regex.IsMatch(cliente.Brevet, @"^B\d+$")) throw new Exception("Formato de brevet erroneo, debe comenzar con la letra B y luego ser numerico");
+        }
     }
 
     private bool IsEmailValido(string email)
@@ -193,12 +209,29 @@ public class ClienteBLL
         if (id <= 0)
             throw new ArgumentException("El ID del cliente debe ser un número positivo.");
 
+        var clienteExistente = clienteData.ObtenerClientePorId(id);
+        if (clienteExistente == null)
+        {
+            throw new Exception($"No se encontró un cliente con el ID {id}.");
+        }
+
         clienteData.ActualizarSaldoHoras(id, saldoHoras);
     }
 
+    public void DevolverSaldoHoras(int id, decimal devolucionHoras)
+    {
+        if (id <= 0)
+            throw new ArgumentException("El ID del cliente debe ser un número positivo.");
+
+        var clienteExistente = clienteData.ObtenerClientePorId(id);
+        if (clienteExistente == null)
+        {
+            throw new Exception($"No se encontró un cliente con el ID {id}.");
+        }
+
+        var saldoActual = clienteExistente.SaldoHoras + devolucionHoras;
+
+        clienteData.ActualizarSaldoHoras(id, saldoActual);
+    }
+
 }
-
-
-
-
-

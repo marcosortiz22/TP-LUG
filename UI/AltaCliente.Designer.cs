@@ -41,6 +41,8 @@
             textTelEmergencia = new TextBox();
             label10 = new Label();
             BtnAlta = new Button();
+            label7 = new Label();
+            textBrevet = new TextBox();
             SuspendLayout();
             // 
             // label2
@@ -135,7 +137,7 @@
             // 
             // textTelEmergencia
             // 
-            textTelEmergencia.Location = new Point(377, 57);
+            textTelEmergencia.Location = new Point(377, 92);
             textTelEmergencia.Margin = new Padding(2);
             textTelEmergencia.Name = "textTelEmergencia";
             textTelEmergencia.Size = new Size(106, 23);
@@ -144,7 +146,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(226, 61);
+            label10.Location = new Point(226, 92);
             label10.Margin = new Padding(2, 0, 2, 0);
             label10.Name = "label10";
             label10.Size = new Size(133, 15);
@@ -162,11 +164,31 @@
             BtnAlta.UseVisualStyleBackColor = true;
             BtnAlta.Click += BtnAlta_Click;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(226, 61);
+            label7.Margin = new Padding(2, 0, 2, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(40, 15);
+            label7.TabIndex = 27;
+            label7.Text = "Brevet";
+            // 
+            // textBrevet
+            // 
+            textBrevet.Location = new Point(377, 61);
+            textBrevet.Margin = new Padding(2);
+            textBrevet.Name = "textBrevet";
+            textBrevet.Size = new Size(106, 23);
+            textBrevet.TabIndex = 28;
+            // 
             // AltaCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(503, 203);
+            Controls.Add(textBrevet);
+            Controls.Add(label7);
             Controls.Add(BtnAlta);
             Controls.Add(label10);
             Controls.Add(textTelEmergencia);
@@ -201,5 +223,7 @@
         private TextBox textTelEmergencia;
         private Label label10;
         private Button BtnAlta;
+        private Label label7;
+        private TextBox textBrevet;
     }
 }

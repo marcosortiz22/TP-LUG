@@ -26,9 +26,7 @@ namespace Entity
                 throw new InvalidOperationException("Cantidad de horas y valor por hora no pueden ser negativos.");
             }
 
-            CantidadHoras = cantidadHoras; // Opcional: actualiza las propiedades
-            ValorHora = valorHora;
-            MontoPago = cantidadHoras * valorHora;
+             MontoPago = cantidadHoras * valorHora;
         }
     }
 }

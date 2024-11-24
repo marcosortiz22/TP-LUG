@@ -28,6 +28,7 @@ namespace UI
                     Apellido = textApellido.Text,
                     Telefono = textTelefono.Text,
                     Email = textEmail.Text,
+                    Brevet = textBrevet.Text,
                     TelefonoEmergencia = textTelEmergencia.Text
                 };
 

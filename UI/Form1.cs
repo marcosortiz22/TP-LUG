@@ -88,14 +88,14 @@ namespace UI
                     return;
                 }
 
-                var confirmResult = MessageBox.Show("¿Estás seguro de que deseas eliminar este cliente?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var confirmResult = MessageBox.Show("¿Estás seguro de que deseas desactivar este cliente?", "Confirmar desactivacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirmResult == DialogResult.Yes)
                 {
-                    clienteBLL.EliminarCliente(idCliente);
+                    clienteBLL.DesactivarCliente(idCliente);
 
                     ActualizarDgvClientes();
 
-                    MessageBox.Show("Cliente eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cliente desactivado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)

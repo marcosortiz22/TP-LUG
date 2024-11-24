@@ -14,6 +14,7 @@ namespace Mapper
         {
             public static void MapearPago(SqlCommand command, Pago pago)
             {
+                command.Parameters.AddWithValue("@NroFactura", pago.NroFactura);
                 command.Parameters.AddWithValue("@IdCliente", pago.Cliente.IdCliente);
                 command.Parameters.AddWithValue("@CantidadHoras", pago.CantidadHoras);
                 command.Parameters.AddWithValue("@ValorHora", pago.ValorHora);

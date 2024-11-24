@@ -23,10 +23,10 @@ namespace DAL
                     {
                         conexion.Open();
 
-                        string query = "INSERT INTO PAGO (ID_CLIENTE, CANTIDAD_HORAS, VALOR_HORA, MONTO_PAGO) " +
-                                       "VALUES (@IdCliente, @CantidadHoras, @ValorHora, @MontoPago)";
+                    string query = "INSERT INTO PAGO (NRO_FACTURA, ID_CLIENTE, CANTIDAD_HORAS, VALOR_HORA, MONTO_PAGO) " +
+                     "VALUES (@NroFactura, @IdCliente, @CantidadHoras, @ValorHora, @MontoPago)";
 
-                        using (SqlCommand command = new SqlCommand(query, conexion))
+                    using (SqlCommand command = new SqlCommand(query, conexion))
                         {
                             PagoMap.MapearPago(command, pago);
                             command.ExecuteNonQuery();
@@ -103,7 +103,31 @@ namespace DAL
                     throw new Exception("Error al obtener todos los pagos: " + ex.Message, ex);
                 }
             }
+
+        public void EliminarPago(int nroFactura)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(conexionDB))
+                {
+                    conexion.Open();
+
+                    string query = "DELETE FROM PAGO WHERE NRO_FACTURA = @NroFactura";
+
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+                        command.Parameters.AddWithValue("@NroFactura", nroFactura);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el pago: " + ex.Message, ex);
+            }
         }
+
     }
+}
 
 

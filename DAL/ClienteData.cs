@@ -76,7 +76,8 @@ namespace DAL
                     conexion.Open();
 
                     string query = "SELECT ID_CLIENTE, DNI, NOMBRE, APELLIDO, TELEFONO, TELEFONO_EMERGENCIA, EMAIL, SALDO_HORAS, BREVET, ACTIVO " +
-                                   "FROM CLIENTE";
+                                   "FROM CLIENTE " +
+                                   "ORDER BY ACTIVO DESC, NOMBRE";
 
                     using (SqlCommand command = new SqlCommand(query, conexion))
                     {
@@ -98,7 +99,42 @@ namespace DAL
             }
         }
 
-        public void EliminarCliente(int id)
+        public List<Cliente> ObtenerClientesActivos()
+        {
+            try
+            {
+                List<Cliente> clientes = new List<Cliente>();
+
+                using (SqlConnection conexion = new SqlConnection(conexionDB))
+                {
+                    conexion.Open();
+
+                    string query = "SELECT ID_CLIENTE, DNI, NOMBRE, APELLIDO, TELEFONO, TELEFONO_EMERGENCIA, EMAIL, SALDO_HORAS, BREVET, ACTIVO " +
+                                   "FROM CLIENTE " +
+                                   "WHERE ACTIVO = 1 " +
+                                   "ORDER BY NOMBRE";
+
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var cliente = ClienteMap.MapearDesdeReader(reader);
+                                clientes.Add(cliente);
+                            }
+                        }
+                    }
+                }
+                return clientes;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener los clientes activos: " + ex.Message, ex);
+            }
+        }
+
+        public void DesactivarCliente(int id)
         {
             try
             {
@@ -106,7 +142,7 @@ namespace DAL
                 {
                     conexion.Open();
 
-                    string query = "DELETE FROM CLIENTE WHERE ID_CLIENTE = @Id";
+                    string query = "UPDATE CLIENTE SET ACTIVO = 0 WHERE ID_CLIENTE = @Id";
                     using (SqlCommand command = new SqlCommand(query, conexion))
                     {
                         command.Parameters.AddWithValue("@Id", id);
@@ -116,7 +152,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al eliminar cliente: " + ex.Message, ex);
+                throw new Exception("Error al desactivar cliente: " + ex.Message, ex);
             }
         }
 
