@@ -45,6 +45,7 @@ public class VueloMap
             CodFinalidad = reader.IsDBNull(reader.GetOrdinal("COD_FINALIDAD")) ? string.Empty : reader.GetString(reader.GetOrdinal("COD_FINALIDAD")),
             HoraPM = TimeOnly.Parse(reader.GetTimeSpan(reader.GetOrdinal("HORA_PM")).ToString()),
             HoraCorte = TimeOnly.Parse(reader.GetTimeSpan(reader.GetOrdinal("HORA_CORTE")).ToString()),
+            TV = reader.GetDecimal(reader.GetOrdinal("TV")),
             HubInicial = reader.IsDBNull(reader.GetOrdinal("HUB_INICIAL")) ? 0 : reader.GetDecimal(reader.GetOrdinal("HUB_INICIAL")),
             HubFinal = reader.IsDBNull(reader.GetOrdinal("HUB_FINAL")) ? 0 : reader.GetDecimal(reader.GetOrdinal("HUB_FINAL")),
             MatriculaAeronave = reader["MATRICULA_AERONAVE"].ToString(),

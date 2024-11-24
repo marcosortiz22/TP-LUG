@@ -23,13 +23,14 @@ namespace UI
 
         private void FormVuelos_Load(object sender, EventArgs e)
         {
-            var vuelos = _vueloBLO.ObtenerTodosVista();
-            dgvVuelos.DataSource = vuelos;
+            ActualizarGrillaVuelos();
         }
         public void ActualizarGrillaVuelos()
         {
             var vuelos = _vueloBLO.ObtenerTodosVista();
             dgvVuelos.DataSource = vuelos;
+            dgvVuelos.Columns[nameof(VistaVuelo.IdCliente)].Visible = false;
+            dgvVuelos.Columns[nameof(VistaVuelo.IdInstructor)].Visible = false;
         }
 
         private void btnNuevoVuelo_Click(object sender, EventArgs e)

@@ -8,6 +8,7 @@ public class VistaVuelo
     public string MatriculaAeronave { get; set; }
     public TimeOnly HoraPM { get; set; }
     public TimeOnly HoraCorte { get; set; }
+    public decimal TV { get; set; }
     public decimal HubInicial { get; set; }
     public decimal HubFinal { get; set; }
     public int IdCliente { get; set; }

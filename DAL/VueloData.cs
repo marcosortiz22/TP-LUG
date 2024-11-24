@@ -76,7 +76,7 @@ public class VueloData
             {
                 conexion.Open();
 
-                string query = @" SELECT V.COD_VUELO, V.FECHA_VUELO, V.COD_FINALIDAD, V.HORA_PM, V.HORA_CORTE, V.HUB_INICIAL, V.HUB_FINAL, V.MATRICULA_AERONAVE,
+                string query = @" SELECT V.COD_VUELO, V.FECHA_VUELO, V.COD_FINALIDAD, V.HORA_PM, V.HORA_CORTE, V.HUB_INICIAL, V.HUB_FINAL, V.MATRICULA_AERONAVE, V.TV,
                                     C.ID_CLIENTE, C.DNI AS ClienteDNI, CONCAT(C.NOMBRE, ' ', C.APELLIDO) AS ClienteNombreApellido,
                                     I.ID_INSTRUCTOR, I.DNI AS InstructorDNI, CONCAT(I.NOMBRE, ' ', I.APELLIDO) AS InstructorNombreApellido
                                   FROM VUELO V
