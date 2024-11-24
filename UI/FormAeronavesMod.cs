@@ -52,7 +52,6 @@ namespace UI
                 
                 FormAeronavePpal.CargarGrillaAeronaves();
                 FormAeronavePpal.CargarGrillaAeronavesTaller();
-                FormAeronavePpal.CargarCmBoxAeronavesDisp();
                 MessageBox.Show("Modificacion Exitosa");
                 this.Close();
             }

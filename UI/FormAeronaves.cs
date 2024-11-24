@@ -28,59 +28,13 @@ namespace UI
         private void FormAeronaves_Load(object sender, EventArgs e)
         {
             CargarGrillaAeronaves();
-            CargarGrillaAeronavesTaller();
-            CargarCmBoxAeronavesDisp();
-            CargarCmbBoxFinalidadTeat();
+            CargarGrillaAeronavesTaller();     
+            
         }
 
-        private void CargarCmbBoxFinalidadTeat()
-        {
-            try
-            {
-                comboBox1.DataSource = null;
-                if (finalidadBLO.ObtenerFinalidadesActivas(finalidadBLO.ObtenerFinalidades()).Count > 0)
-                {
-                    comboBox1.DataSource = finalidadBLO.ObtenerFinalidadesActivas(finalidadBLO.ObtenerFinalidades());
-                    comboBox1.ValueMember = "CodigoFinalidad";
-                    comboBox1.Format += (sender, e) =>
-                    {
-                        if (e.ListItem is Finalidad finalidad)
-                        {
-                            e.Value = $"{finalidad.CodigoFinalidad} - {finalidad.Descripcion}";
-                        }
-                    };
-                }
-            }
-            catch (Exception ex)
-            {
+      
 
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        public void CargarCmBoxAeronavesDisp()
-        {
-            try
-            {
-                cmBox_AeronavesDisp.DataSource = null;
-                if (aeronaveBLO.AeronavesDispoibles(aeronaveBLO.ObtenerAeronaves()).Count() > 0)
-                {
-                    cmBox_AeronavesDisp.DataSource = (aeronaveBLO.AeronavesDispoibles(aeronaveBLO.ObtenerAeronaves()));
-                    cmBox_AeronavesDisp.ValueMember = "Matricula";
-                    cmBox_AeronavesDisp.Format += (sender, e) =>
-                    {
-                        if (e.ListItem is Aeronave aeronave)
-                        {
-                            e.Value = $"{aeronave.Matricula} - {aeronave.Modelo}";
-                        }
-                    };
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+  
 
         public void CargarGrillaAeronaves()
         {
@@ -161,7 +115,7 @@ namespace UI
                 aeronaveBLO.EliminarAeronavePorMatricula(aeronaveMod.Matricula);
                 CargarGrillaAeronaves();
                 CargarGrillaAeronavesTaller();
-                CargarCmBoxAeronavesDisp();
+               
                 MessageBox.Show("Eliminacion exitosa");
             }
             catch (Exception ex)
@@ -183,7 +137,6 @@ namespace UI
                 aeronaveBLO.ActualizarService100Hs(aeronaveMod.Matricula, aeronaveMod.Revision100Hs);
                 CargarGrillaAeronaves();
                 CargarGrillaAeronavesTaller();
-                CargarCmBoxAeronavesDisp();
                 MessageBox.Show("Service Exitoso");
 
             }

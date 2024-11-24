@@ -31,14 +31,11 @@
             dgv_Aeronaves = new DataGridView();
             btn_ModificarAeronave = new Button();
             btn_EliminarAeronave = new Button();
-            cmBox_AeronavesDisp = new ComboBox();
             dgv_AeronavesTaller = new DataGridView();
             btn_AltaAeronave = new Button();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
             btn_RealizarService = new Button();
-            comboBox1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgv_Aeronaves).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgv_AeronavesTaller).BeginInit();
             SuspendLayout();
@@ -73,14 +70,6 @@
             btn_EliminarAeronave.Text = "Eliminar";
             btn_EliminarAeronave.UseVisualStyleBackColor = true;
             btn_EliminarAeronave.Click += btn_EliminarAeronave_Click;
-            // 
-            // cmBox_AeronavesDisp
-            // 
-            cmBox_AeronavesDisp.FormattingEnabled = true;
-            cmBox_AeronavesDisp.Location = new Point(822, 380);
-            cmBox_AeronavesDisp.Name = "cmBox_AeronavesDisp";
-            cmBox_AeronavesDisp.Size = new Size(186, 23);
-            cmBox_AeronavesDisp.TabIndex = 3;
             // 
             // dgv_AeronavesTaller
             // 
@@ -118,15 +107,6 @@
             label2.TabIndex = 7;
             label2.Text = "Aeronaves que requieren Service";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(822, 351);
-            label3.Name = "label3";
-            label3.Size = new Size(186, 15);
-            label3.TabIndex = 8;
-            label3.Text = "Modelo de combo box para vuelo";
-            // 
             // btn_RealizarService
             // 
             btn_RealizarService.Location = new Point(55, 518);
@@ -137,27 +117,16 @@
             btn_RealizarService.UseVisualStyleBackColor = true;
             btn_RealizarService.Click += btn_RealizarService_Click;
             // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(828, 429);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(184, 23);
-            comboBox1.TabIndex = 10;
-            // 
             // FormAeronaves
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1087, 553);
-            Controls.Add(comboBox1);
+            ClientSize = new Size(1023, 557);
             Controls.Add(btn_RealizarService);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btn_AltaAeronave);
             Controls.Add(dgv_AeronavesTaller);
-            Controls.Add(cmBox_AeronavesDisp);
             Controls.Add(btn_EliminarAeronave);
             Controls.Add(btn_ModificarAeronave);
             Controls.Add(dgv_Aeronaves);
@@ -175,13 +144,10 @@
         private DataGridView dgv_Aeronaves;
         private Button btn_ModificarAeronave;
         private Button btn_EliminarAeronave;
-        private ComboBox cmBox_AeronavesDisp;
         private DataGridView dgv_AeronavesTaller;
         private Button btn_AltaAeronave;
         private Label label1;
         private Label label2;
-        private Label label3;
         private Button btn_RealizarService;
-        private ComboBox comboBox1;
     }
 }

@@ -46,7 +46,7 @@ namespace UI
                 LimpiarTxt();
                 FAeronavePpal.CargarGrillaAeronaves();
                 FAeronavePpal.CargarGrillaAeronavesTaller();
-                FAeronavePpal.CargarCmBoxAeronavesDisp();
+              
             }
             catch (Exception ex)
             {
@@ -112,7 +112,6 @@ namespace UI
                 ActualizarGrillaBorrador();
                 FAeronavePpal.CargarGrillaAeronaves();
                 FAeronavePpal.CargarGrillaAeronavesTaller();
-                FAeronavePpal.CargarCmBoxAeronavesDisp();
                 MessageBox.Show("Alta de lista borrador Exitosa");
             }
             catch (Exception ex)
