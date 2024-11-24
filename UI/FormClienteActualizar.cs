@@ -49,6 +49,7 @@ namespace UI
 
                 FormCliente formPrincipal = (FormCliente)this.Owner;
                 formPrincipal.ActualizarDgvClientes();
+                formPrincipal.formVuelo.ActualizarGrillaVuelos();
 
                 MessageBox.Show("Cliente actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();

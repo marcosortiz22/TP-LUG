@@ -6,7 +6,7 @@ namespace UI
     public partial class FormCliente : Form
     {
         private ClienteBLL clienteBLL;
-        FormVuelos formVuelo;
+        public FormVuelos formVuelo;
 
         public FormCliente(FormVuelos formVueloPpal)
         {
