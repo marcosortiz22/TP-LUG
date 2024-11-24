@@ -111,7 +111,7 @@ public class VueloData
             {
                 conexion.Open();
 
-                string query = "DELETE FROM VUELO WHERE COD_VUELO = @Cod";
+                string query = "DELETE VUELO WHERE COD_VUELO = @Cod";
                 using (SqlCommand command = new SqlCommand(query, conexion))
                 {
                     command.Parameters.AddWithValue("@Cod", cod);
@@ -133,9 +133,9 @@ public class VueloData
             {
                 conexion.Open();
 
-                string query = "UPDATE VUELO SET FECHA_VUELO = @FechaVuelo, ID_INSTRUCTOR = @IdInstructor, ID_CLIENTE = @IdCliente, " +
-                               "MATRICULA_AERONAVE = @MatriculaAeronave, COD_FINALIDAD = @CodFinalidad, HORA_PM = @HoraPM, " +
-                               "HORA_CORTE = @HoraCorte, HUB_INICIAL = @HubInicial, HUB_FINAL = @HubFinal " +
+                string query = "UPDATE VUELO SET FECHA_VUELO = @FechaVuelo, " +
+                               "MATRICULA_AERONAVE = @MatriculaAeronave, COD_FINALIDAD = @CodFinalidad, " +
+                               "HUB_INICIAL = @HubInicial, HUB_FINAL = @HubFinal " +
                                "WHERE COD_VUELO = @CodVuelo";
 
                 using (SqlCommand command = new SqlCommand(query, conexion))

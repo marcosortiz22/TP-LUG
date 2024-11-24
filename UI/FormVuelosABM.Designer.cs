@@ -48,6 +48,7 @@
             nddHubFinal = new NumericUpDown();
             btnGuardar = new Button();
             btnCancelar = new Button();
+            lblCodVuelo = new Label();
             ((System.ComponentModel.ISupportInitialize)nddHubInicial).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nddHubFinal).BeginInit();
             SuspendLayout();
@@ -232,11 +233,20 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // lblCodVuelo
+            // 
+            lblCodVuelo.AutoSize = true;
+            lblCodVuelo.Location = new Point(15, 9);
+            lblCodVuelo.Name = "lblCodVuelo";
+            lblCodVuelo.Size = new Size(0, 20);
+            lblCodVuelo.TabIndex = 28;
+            // 
             // FormVuelosABM
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(671, 291);
+            Controls.Add(lblCodVuelo);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(label9);
@@ -287,5 +297,6 @@
         private NumericUpDown nddHubFinal;
         private Button btnGuardar;
         private Button btnCancelar;
+        private Label lblCodVuelo;
     }
 }

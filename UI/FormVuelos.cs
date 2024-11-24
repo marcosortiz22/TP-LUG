@@ -34,10 +34,10 @@ namespace UI
 
         private void btnNuevoVuelo_Click(object sender, EventArgs e)
         {
-            using (var form = new FormVuelosABM(this))
+            using (var form = new FormVuelosABM())
             {
                 form.Text = "Alta de vuelo";
-                var result = form.ShowDialog(); // Mostramos el formulario como modal
+                var result = form.ShowDialog();
                 if (result == DialogResult.OK)
                 {
                     MessageBox.Show("Se cerró el formulario con OK.");
@@ -47,7 +47,9 @@ namespace UI
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            var rowsSeleccionadas = dgvVuelos.SelectedRows;
+            DataGridViewSelectedRowCollection rowsSeleccionadas;
+
+            rowsSeleccionadas = dgvVuelos.SelectedRows;
             if (rowsSeleccionadas.Count == 0)
             {
                 MessageBox.Show("Debe seleccionar un vuelo.");
@@ -58,10 +60,10 @@ namespace UI
             {
                 var vuelo = (VistaVuelo)rowsSeleccionadas[0].DataBoundItem;
 
-                using (var form = new FormVuelosABM(this,vuelo))
+                using (var form = new FormVuelosABM(vuelo))
                 {
                     form.Text = "Modificación de vuelo";
-                    var result = form.ShowDialog(); // Mostramos el formulario como modal
+                    var result = form.ShowDialog();
                     if (result == DialogResult.OK)
                     {
                         ActualizarGrillaVuelos();
@@ -123,7 +125,7 @@ namespace UI
             try
             {
                 FormPago formPago = new FormPago(this);
-                formPago.ShowDialog();  
+                formPago.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -131,5 +133,38 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DataGridViewSelectedRowCollection rowsSeleccionadas;
+            rowsSeleccionadas = dgvVuelos.SelectedRows;
+            if (rowsSeleccionadas.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar un vuelo.");
+                return;
+            }
+
+            try
+            {
+                var vuelo = (VistaVuelo)rowsSeleccionadas[0].DataBoundItem;
+
+                using (var form = new FormVuelosABM(vuelo,true))
+                {
+                    form.Text = "Eliminar vuelo";
+                    var result = form.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        ActualizarGrillaVuelos();
+                    }
+                    form.Close();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al intentar cargar el vuelo.");
+            }
+
+        }
+
     }
 }
