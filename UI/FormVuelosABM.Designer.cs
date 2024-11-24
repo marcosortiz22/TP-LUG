@@ -48,6 +48,7 @@
             nddHubFinal = new NumericUpDown();
             btnGuardar = new Button();
             btnCancelar = new Button();
+            lblCodVuelo = new Label();
             ((System.ComponentModel.ISupportInitialize)nddHubInicial).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nddHubFinal).BeginInit();
             SuspendLayout();
@@ -230,12 +231,22 @@
             btnCancelar.TabIndex = 27;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
-            // FormVueloABM
+            // lblCodVuelo
+            // 
+            lblCodVuelo.AutoSize = true;
+            lblCodVuelo.Location = new Point(15, 9);
+            lblCodVuelo.Name = "lblCodVuelo";
+            lblCodVuelo.Size = new Size(0, 20);
+            lblCodVuelo.TabIndex = 28;
+            // 
+            // FormVuelosABM
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(671, 291);
+            Controls.Add(lblCodVuelo);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(label9);
@@ -256,7 +267,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(cmbAeronavesDisp);
-            Name = "FormVueloABM";
+            Name = "FormVuelosABM";
             Text = "FormVueloABM";
             ((System.ComponentModel.ISupportInitialize)nddHubInicial).EndInit();
             ((System.ComponentModel.ISupportInitialize)nddHubFinal).EndInit();
@@ -286,5 +297,6 @@
         private NumericUpDown nddHubFinal;
         private Button btnGuardar;
         private Button btnCancelar;
+        private Label lblCodVuelo;
     }
 }

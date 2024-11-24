@@ -27,7 +27,6 @@ public class VueloBLL
             {
                 ValidarVuelo(vuelo);
 
-                // Actualizar el saldo de horas del cliente y la revisión del avión
                 var cliente = vuelo.ClientVuelo;
                 cliente.SaldoHoras -= vuelo.TV;
 
@@ -43,30 +42,6 @@ public class VueloBLL
         catch (Exception ex)
         {
             throw new Exception("Error al crear el vuelo: " + ex.Message, ex);
-        }
-    }
-
-    public Vuelo ObtenerVueloPorId(int id)
-    {
-        try
-        {
-            if (id <= 0)
-            {
-                throw new ArgumentException("El ID del vuelo debe ser un número positivo.");
-            }
-
-            var vuelo = _vueloData.ObtenerVueloPorCod(id);
-
-            if (vuelo == null)
-            {
-                throw new Exception("Vuelo no encontrado.");
-            }
-
-            return vuelo;
-        }
-        catch (Exception ex)
-        {
-            throw new Exception("Error al obtener el vuelo por ID: " + ex.Message, ex);
         }
     }
 
@@ -101,16 +76,24 @@ public class VueloBLL
         }
     }
 
-    public void EliminarVuelo(int id)
+    public void EliminarVuelo(Vuelo vuelo)
     {
         try
         {
-            if (id <= 0)
+            ValidarVuelo(vuelo);
+            using (var trx = new TransactionScope())
             {
-                throw new ArgumentException("El ID del vuelo debe ser un número positivo.");
-            }
+                var cliente = vuelo.ClientVuelo;
+                cliente.SaldoHoras += vuelo.TV;
 
-            _vueloData.EliminarVuelo(id);
+                var aeronave = vuelo.AeronaveVuelo;
+                aeronave.Revision100Hs -= vuelo.TV;
+
+                _vueloData.EliminarVuelo(vuelo.CodVuelo);
+                _clienteBll.ActualizarSaldoHoras(cliente.IdCliente, cliente.SaldoHoras);
+                _aeronaveBll.ActualizarService100Hs(aeronave.Matricula, aeronave.Revision100Hs);
+                trx.Complete();
+            }
         }
         catch (Exception ex)
         {

@@ -13,19 +13,19 @@ namespace UI
         ClienteBLL _clienteBLO = new ClienteBLL();
         InstructorBLL _instructorBLO = new InstructorBLL();
         FinalidadBLL _finalidadBLO = new FinalidadBLL();
-        FormVuelos formVuelos;
         VistaVuelo vueloSeleccionado;
         Vuelo vuelo;
-        public FormVuelosABM( FormVuelos formVuelosPpal,VistaVuelo vistaVuelo = null)
+        bool eliminaVuelo;
+        public FormVuelosABM(VistaVuelo vistaVuelo = null, bool elimina = false)
         {
             InitializeComponent();
             CargarCmbAeronavesDisp();
             CargarCmbClientes();
             CargarCmbInstructor();
             CargarCmbFinalidad();
-            formVuelos = formVuelosPpal;
             if (vistaVuelo != null)
             {
+                lblCodVuelo.Text = $"Código de vuelo: {vistaVuelo.CodVuelo}";
                 vueloSeleccionado = vistaVuelo;
                 dtpFechaVuelo.Value = vistaVuelo.FechaVuelo;
                 cmbInstructor.SelectedValue = vistaVuelo.IdInstructor;
@@ -36,6 +36,20 @@ namespace UI
                 dtpHoraCorte.Value = DateTime.Now.Date.AddTicks(vistaVuelo.HoraCorte.Ticks);
                 nddHubInicial.Value = vistaVuelo.HubInicial;
                 nddHubFinal.Value = vistaVuelo.HubFinal;
+                cmbAeronavesDisp.Enabled = false;
+                cmbCliente.Enabled = false;
+                cmbInstructor.Enabled = false;
+                dtpHoraPM.Enabled = false;
+                dtpHoraCorte.Enabled = false;
+            }
+
+            if (elimina)
+            {
+                eliminaVuelo = elimina;
+                dtpFechaVuelo.Enabled = false;
+                cmbFinalidad.Enabled = false;
+                nddHubInicial.Enabled = false;
+                nddHubFinal.Enabled = false;
             }
         }
 
@@ -139,39 +153,45 @@ namespace UI
                 HubFinal = (decimal)nddHubFinal.Value
             };
 
-            if (vueloSeleccionado != null)
+            try
             {
-                vuelo.CodVuelo = vueloSeleccionado.CodVuelo;
-
-                try
+                if (eliminaVuelo)
                 {
+                    var result = MessageBox.Show("Está seguro que desea eliminar?","Elimina", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        vuelo.CodVuelo = vueloSeleccionado.CodVuelo;
+                        _vueloBLO.EliminarVuelo(vuelo);
+                        MessageBox.Show("Vuelo eliminado correctamente.");
+                        this.DialogResult = DialogResult.OK;
+                    }
+                } 
+                else if (vueloSeleccionado != null)
+                {
+                    vuelo.CodVuelo = vueloSeleccionado.CodVuelo;
                     _vueloBLO.ActualizarVuelo(vuelo);
                     MessageBox.Show("Modificacion de vuelo exitosa");
-                    formVuelos.ActualizarGrillaVuelos();
+                    this.DialogResult = DialogResult.OK;
+
 
                 }
-                catch (Exception)
-                {
-                    MessageBox.Show("Error al actualizar el vuelo");
-                }
-                
-            }
-            else
-            {
-                try
+                else
                 {
                     _vueloBLO.CrearVuelo(vuelo);
                     MessageBox.Show("Alta de vuelo exitosa");
-                    formVuelos.ActualizarGrillaVuelos();
-
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Error al insertar el vuelo");
+                    this.DialogResult = DialogResult.OK;
                 }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Se produjo un error al procesar la transacción.");
+            }
 
+        }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }
