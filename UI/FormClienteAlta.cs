@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class AltaCliente : Form
+    public partial class FormClienteAlta : Form
     {
         private ClienteBLL clienteBLL;
-        private Form1 formPrincipal;
+        private FormCliente formPrincipal;
 
-        public AltaCliente(Form1 formPrincipal)
+        public FormClienteAlta(FormCliente formPrincipal)
         {
             InitializeComponent();
             clienteBLL = new ClienteBLL();

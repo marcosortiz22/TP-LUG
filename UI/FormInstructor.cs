@@ -15,9 +15,11 @@ namespace UI
     public partial class FormInstructor : Form
     {
         InstructorBLL instructorBLO = new InstructorBLL();
-        public FormInstructor()
+        FormVuelos formVuelos = new FormVuelos();
+        public FormInstructor(FormVuelos formVuelosPpal)
         {
             InitializeComponent();
+            formVuelos = formVuelosPpal;
         }
 
         private void FormInstructor_Load(object sender, EventArgs e)

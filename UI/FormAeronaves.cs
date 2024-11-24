@@ -18,9 +18,11 @@ namespace UI
 
         AeronaveBLL aeronaveBLO = new AeronaveBLL();
         FinalidadBLL finalidadBLO = new FinalidadBLL();
-        public FormAeronaves()
+        FormVuelos formVuelos;
+        public FormAeronaves(FormVuelos formVuelosPpal)
         {
             InitializeComponent();
+            formVuelos = formVuelosPpal;
         }
 
         private void FormAeronaves_Load(object sender, EventArgs e)
@@ -118,7 +120,7 @@ namespace UI
         {
             try
             {
-                FormAeronaveAlta formAltas = new FormAeronaveAlta(this);
+                FormAeronavesAlta formAltas = new FormAeronavesAlta(this);
                 formAltas.ShowDialog();
             }
             catch (Exception ex)
@@ -137,7 +139,7 @@ namespace UI
                 Aeronave aeronaveMod = new Aeronave();
                 aeronaveMod = dgv_Aeronaves.SelectedRows[0].DataBoundItem as Aeronave;
 
-                FormModificarAeronave formModificarAeronave = new FormModificarAeronave(this, aeronaveMod);
+                FormAeronavesMod formModificarAeronave = new FormAeronavesMod(this, aeronaveMod);
                 formModificarAeronave.ShowDialog();
 
             }

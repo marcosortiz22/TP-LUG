@@ -3,16 +3,19 @@ using Entity;
 
 namespace UI
 {
-    public partial class Form1 : Form
+    public partial class FormCliente : Form
     {
         private ClienteBLL clienteBLL;
+        FormVuelos formVuelo;
 
-        public Form1()
+        public FormCliente(FormVuelos formVueloPpal)
         {
+            formVuelo = formVueloPpal;
             InitializeComponent();
             clienteBLL = new ClienteBLL();
 
             this.Load += Form1_Load;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,7 +38,7 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AltaCliente NuevoCliente = new AltaCliente(this);
+            FormClienteAlta NuevoCliente = new FormClienteAlta(this);
             NuevoCliente.Show();
         }
 
@@ -58,7 +61,7 @@ namespace UI
 
                 Cliente clienteSeleccionado = clienteBLL.ObtenerClientePorId(idCliente);
 
-                ActualizarCliente actualizarForm = new ActualizarCliente(clienteSeleccionado)
+                FormClienteActualizar actualizarForm = new FormClienteActualizar(clienteSeleccionado)
                 {
                     Owner = this
                 };

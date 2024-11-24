@@ -32,6 +32,18 @@ namespace Mapper
                     MontoPago = reader.GetDecimal(reader.GetOrdinal("MONTO_PAGO"))
                 };
             }
+            public static VistaPago MapearVistaPagoDesdeReader(SqlDataReader reader)
+            {
+                return new VistaPago
+                {
+                    NroFactura = reader.GetInt32(reader.GetOrdinal("NRO_FACTURA")),
+                    ApellidoNombreCliente = $"{reader.GetString(reader.GetOrdinal("APELLIDO"))}, {reader.GetString(reader.GetOrdinal("NOMBRE"))}",
+                    CantidadHoras = reader.GetDecimal(reader.GetOrdinal("CANTIDAD_HORAS")),
+                    ValorHora = reader.GetDecimal(reader.GetOrdinal("VALOR_HORA")),
+                    MontoPago = reader.GetDecimal(reader.GetOrdinal("CANTIDAD_HORAS")) * reader.GetDecimal(reader.GetOrdinal("VALOR_HORA"))
+
+                };
+            }
         }
     }
 

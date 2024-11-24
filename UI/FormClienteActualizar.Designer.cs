@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class ActualizarCliente
+    partial class FormClienteActualizar
     {
         /// <summary>
         /// Required designer variable.

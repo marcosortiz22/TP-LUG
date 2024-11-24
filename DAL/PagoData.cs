@@ -104,6 +104,39 @@ namespace DAL
                 }
             }
 
+        public List<VistaPago> ObtenerTodosLasVistasPagos()
+        {
+            try
+            {
+                List<VistaPago> pagos = new List<VistaPago>();
+
+                using (SqlConnection conexion = new SqlConnection(conexionDB))
+                {
+                    conexion.Open();
+
+                    string query = @"
+                                    SELECT p.NRO_FACTURA, p.CANTIDAD_HORAS,  p.VALOR_HORA, c.APELLIDO, c.NOMBRE 
+                                    FROM PAGO p
+                                    INNER JOIN CLIENTE c ON p.ID_CLIENTE = c.ID_CLIENTE";
+                    using (SqlCommand command = new SqlCommand(query, conexion))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var vistapago = PagoMap.MapearVistaPagoDesdeReader(reader);
+                                pagos.Add(vistapago);
+                            }
+                        }
+                    }
+                }
+                return pagos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener todos los pagos: " + ex.Message, ex);
+            }
+        }
         public void EliminarPago(int nroFactura)
         {
             try

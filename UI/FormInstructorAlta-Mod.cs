@@ -15,14 +15,15 @@ namespace UI
     public partial class FormInstructorAlta_Mod : Form
     {
         InstructorBLL instructorBlo = new InstructorBLL();
-        FormInstructor formularioPpal = new FormInstructor();
         Instructor instructor = new Instructor();
+        FormInstructor formularioPpal;
 
         public FormInstructorAlta_Mod(FormInstructor formPpal, Instructor instructorPpal)
         {
+       
+            InitializeComponent();
             formularioPpal = formPpal;
             instructor = instructorPpal;
-            InitializeComponent();
         }
 
         private void FormInstructorAlta_Mod_Load(object sender, EventArgs e)

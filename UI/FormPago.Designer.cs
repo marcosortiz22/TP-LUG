@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class formularioPago
+    partial class FormPago
     {
         /// <summary>
         /// Required designer variable.

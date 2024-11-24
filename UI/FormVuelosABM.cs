@@ -6,23 +6,24 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace UI
 {
-    public partial class FormVueloABM : Form
+    public partial class FormVuelosABM : Form
     {
         AeronaveBLL _aeronaveBLO = new AeronaveBLL();
         VueloBLL _vueloBLO = new VueloBLL();
         ClienteBLL _clienteBLO = new ClienteBLL();
         InstructorBLL _instructorBLO = new InstructorBLL();
         FinalidadBLL _finalidadBLO = new FinalidadBLL();
-
+        FormVuelos formVuelos;
         VistaVuelo vueloSeleccionado;
         Vuelo vuelo;
-        public FormVueloABM(VistaVuelo vistaVuelo = null)
+        public FormVuelosABM( FormVuelos formVuelosPpal,VistaVuelo vistaVuelo = null)
         {
             InitializeComponent();
             CargarCmbAeronavesDisp();
             CargarCmbClientes();
             CargarCmbInstructor();
             CargarCmbFinalidad();
+            formVuelos = formVuelosPpal;
             if (vistaVuelo != null)
             {
                 vueloSeleccionado = vistaVuelo;
@@ -145,6 +146,8 @@ namespace UI
                 try
                 {
                     _vueloBLO.ActualizarVuelo(vuelo);
+                    MessageBox.Show("Modificacion de vuelo exitosa");
+                    formVuelos.ActualizarGrillaVuelos();
 
                 }
                 catch (Exception)
@@ -158,6 +161,8 @@ namespace UI
                 try
                 {
                     _vueloBLO.CrearVuelo(vuelo);
+                    MessageBox.Show("Alta de vuelo exitosa");
+                    formVuelos.ActualizarGrillaVuelos();
 
                 }
                 catch (Exception)

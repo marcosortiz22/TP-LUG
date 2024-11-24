@@ -4,12 +4,12 @@ using Entity;
 
 namespace UI
 {
-    public partial class ActualizarCliente : Form
+    public partial class FormClienteActualizar : Form
     {
         private Cliente clienteActual;
         private ClienteBLL clienteBLL;
 
-        public ActualizarCliente(Cliente cliente)
+        public FormClienteActualizar(Cliente cliente)
         {
             InitializeComponent();
             clienteActual = cliente;
@@ -47,7 +47,7 @@ namespace UI
 
                 clienteBLL.ActualizarCliente(clienteActual);
 
-                Form1 formPrincipal = (Form1)this.Owner;
+                FormCliente formPrincipal = (FormCliente)this.Owner;
                 formPrincipal.ActualizarDgvClientes();
 
                 MessageBox.Show("Cliente actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

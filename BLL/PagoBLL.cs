@@ -76,6 +76,17 @@ namespace BLL
             }
         }
 
+        public List<VistaPago> ObtenerTodosVistaPago()
+        {
+            try
+            {
+                return pagoData.ObtenerTodosLasVistasPagos();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener la lista de pagos: " + ex.Message, ex);
+            }
+        }
         public void EliminarPago(int nroFactura)
         {
             try
