@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class FormAeronaveAlta : Form
+    public partial class FormAeronavesAlta : Form
     {
-        FormAeronaves FAeronavePpal = new FormAeronaves();
+        FormAeronaves FAeronavePpal;
         List<Aeronave> LBorrador = new List<Aeronave>();
         AeronaveBLL aeronaveBLO = new AeronaveBLL();
-        public FormAeronaveAlta(FormAeronaves formAeronaves)
+        public FormAeronavesAlta(FormAeronaves formAeronaves)
         {
             FAeronavePpal = formAeronaves;
             InitializeComponent();

@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class FormAeronaveAlta
+    partial class FormAeronavesAlta
     {
         /// <summary>
         /// Required designer variable.

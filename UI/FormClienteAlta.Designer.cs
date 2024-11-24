@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class AltaCliente
+    partial class FormClienteAlta
     {
         /// <summary>
         /// Required designer variable.

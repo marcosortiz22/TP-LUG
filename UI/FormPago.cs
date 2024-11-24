@@ -6,14 +6,16 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class formularioPago : Form
+    public partial class FormPago : Form
     {
         private readonly ClienteBLL clienteBLL = new ClienteBLL();
         private readonly PagoBLL pagoBLL = new PagoBLL();
+        FormVuelos formVuelos;
 
-        public formularioPago()
+        public FormPago(FormVuelos formVuelosPpal)
         {
             InitializeComponent();
+            formVuelos = formVuelosPpal;
             CargarClientesEnComboBox();
             CargarPagosEnGrid();
 
@@ -46,10 +48,10 @@ namespace UI
         {
             try
             {
-                var listaPagos = pagoBLL.ObtenerTodosLosPagos();
+                var listaPagos = pagoBLL.ObtenerTodosVistaPago();
                 dataGridViewPagos.DataSource = listaPagos;
 
-                dataGridViewPagos.Columns["Cliente"].Visible = false;
+                //dataGridViewPagos.Columns["Cliente"].Visible = false;
             }
             catch (Exception ex)
             {

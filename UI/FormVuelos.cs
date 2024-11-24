@@ -26,10 +26,15 @@ namespace UI
             var vuelos = _vueloBLO.ObtenerTodosVista();
             dgvVuelos.DataSource = vuelos;
         }
+        public void ActualizarGrillaVuelos()
+        {
+            var vuelos = _vueloBLO.ObtenerTodosVista();
+            dgvVuelos.DataSource = vuelos;
+        }
 
         private void btnNuevoVuelo_Click(object sender, EventArgs e)
         {
-            using (var form = new FormVueloABM())
+            using (var form = new FormVuelosABM(this))
             {
                 form.Text = "Alta de vuelo";
                 var result = form.ShowDialog(); // Mostramos el formulario como modal
@@ -53,7 +58,7 @@ namespace UI
             {
                 var vuelo = (VistaVuelo)rowsSeleccionadas[0].DataBoundItem;
 
-                using (var form = new FormVueloABM(vuelo))
+                using (var form = new FormVuelosABM(this,vuelo))
                 {
                     form.Text = "Modificación de vuelo";
                     var result = form.ShowDialog(); // Mostramos el formulario como modal
@@ -68,6 +73,62 @@ namespace UI
                 MessageBox.Show("Error al intentar cargar el vuelo.");
             }
 
+        }
+
+        private void btn_FormClientes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FormCliente formCliente = new FormCliente(this);
+                formCliente.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_FormInstructores_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FormInstructor formInstructor = new FormInstructor(this);
+                formInstructor.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_FormAeronaves_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FormAeronaves formAeronaves = new FormAeronaves(this);
+                formAeronaves.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_FormPagos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FormPago formPago = new FormPago(this);
+                formPago.ShowDialog();  
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

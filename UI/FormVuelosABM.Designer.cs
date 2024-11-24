@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class FormVueloABM
+    partial class FormVuelosABM
     {
         /// <summary>
         /// Required designer variable.

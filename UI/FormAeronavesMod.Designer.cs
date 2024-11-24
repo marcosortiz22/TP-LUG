@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class FormModificarAeronave
+    partial class FormAeronavesMod
     {
         /// <summary>
         /// Required designer variable.

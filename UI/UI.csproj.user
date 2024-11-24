@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="Form1.cs">
+    <Compile Update="FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ActualizarCliente.cs">
+    <Compile Update="FormClienteActualizar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AltaCliente.cs">
+    <Compile Update="FormClienteAlta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormAeronaveAlta.cs">
+    <Compile Update="FormAeronavesAlta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormAeronaves.cs">
@@ -22,13 +22,13 @@
     <Compile Update="FormInstructorAlta-Mod.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormModificarAeronave.cs">
+    <Compile Update="FormAeronavesMod.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="formularioPago.cs">
+    <Compile Update="FormPago.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormVueloABM.cs">
+    <Compile Update="FormVuelosABM.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormVuelos.cs">
