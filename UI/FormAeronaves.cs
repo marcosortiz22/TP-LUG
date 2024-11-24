@@ -32,10 +32,6 @@ namespace UI
             
         }
 
-      
-
-  
-
         public void CargarGrillaAeronaves()
         {
             try

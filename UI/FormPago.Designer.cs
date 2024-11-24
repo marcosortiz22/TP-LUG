@@ -43,6 +43,7 @@
             BtnEliminarPago = new Button();
             txtSaldoHorasCliente = new TextBox();
             txtSaldoHoras = new Label();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPagos).BeginInit();
             SuspendLayout();
             // 
@@ -169,7 +170,7 @@
             // 
             txtSaldoHorasCliente.Location = new Point(244, 139);
             txtSaldoHorasCliente.Name = "txtSaldoHorasCliente";
-            txtSaldoHorasCliente.Size = new Size(100, 23);
+            txtSaldoHorasCliente.Size = new Size(110, 23);
             txtSaldoHorasCliente.TabIndex = 13;
             // 
             // txtSaldoHoras
@@ -177,15 +178,25 @@
             txtSaldoHoras.AutoSize = true;
             txtSaldoHoras.Location = new Point(244, 112);
             txtSaldoHoras.Name = "txtSaldoHoras";
-            txtSaldoHoras.Size = new Size(70, 15);
+            txtSaldoHoras.Size = new Size(110, 15);
             txtSaldoHoras.TabIndex = 14;
-            txtSaldoHoras.Text = "Saldo Horas";
+            txtSaldoHoras.Text = "Saldo Horas Cliente";
             // 
-            // formularioPago
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(408, 9);
+            label6.Name = "label6";
+            label6.Size = new Size(84, 15);
+            label6.TabIndex = 15;
+            label6.Text = "Pagos Clientes";
+            // 
+            // FormPago
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(967, 266);
+            Controls.Add(label6);
             Controls.Add(txtSaldoHoras);
             Controls.Add(txtSaldoHorasCliente);
             Controls.Add(BtnEliminarPago);
@@ -202,7 +213,7 @@
             Controls.Add(label1);
             Controls.Add(comboCliente);
             Margin = new Padding(2);
-            Name = "formularioPago";
+            Name = "FormPago";
             Text = "formularioPago";
             ((System.ComponentModel.ISupportInitialize)dataGridViewPagos).EndInit();
             ResumeLayout(false);
@@ -226,5 +237,6 @@
         private Button BtnEliminarPago;
         private TextBox txtSaldoHorasCliente;
         private Label txtSaldoHoras;
+        private Label label6;
     }
 }

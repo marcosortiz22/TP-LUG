@@ -178,13 +178,8 @@ public class ClienteBLL
         }
         if (!IsEmailValido(cliente.Email))
         {
-            throw new ArgumentException("El email no tiene un formato válido.");
+            throw new ArgumentException("El correo electrónico debe ser válido y contener '@', un punto ('.') después del dominio, y texto antes y después del '@'.");
         }
-        if (string.IsNullOrWhiteSpace(cliente.Email) || !Regex.IsMatch(cliente.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-        { 
-            throw new ArgumentException("El correo electrónico debe ser válido y contener '@'.");
-        }
-
         if (!string.IsNullOrEmpty(cliente.Brevet))
         {
             if (!Regex.IsMatch(cliente.Brevet, @"^B\d+$")) throw new Exception("Formato de brevet erroneo, debe comenzar con la letra B y luego ser numerico");

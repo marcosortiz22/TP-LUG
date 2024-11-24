@@ -40,7 +40,7 @@ namespace UI
                 var result = form.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    MessageBox.Show("Se cerró el formulario con OK.");
+                    ActualizarGrillaVuelos();
                 }
             }
         }
