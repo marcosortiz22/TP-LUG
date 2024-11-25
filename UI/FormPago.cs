@@ -47,11 +47,9 @@ namespace UI
         private void CargarPagosEnGrid()
         {
             try
-            {
+            {           
                 var listaPagos = pagoBLL.ObtenerTodosVistaPago();
                 dataGridViewPagos.DataSource = listaPagos;
-
-                //dataGridViewPagos.Columns["Cliente"].Visible = false;
             }
             catch (Exception ex)
             {
